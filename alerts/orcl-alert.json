@@ -1,0 +1,19 @@
+{
+    "compartment_id": "ocid1.tenancy.oc1..aaaaaaamcompartid2vbxyhczksgjir7xdq",
+    "detector_id": "IAAS_ACTIVITY_DETECTOR",
+    "detector_rule_id": "VCN_SECURITY_LIST_INGRESS_RULES_CHANGED",
+    "id": "ocid1.cloudguardproblem.oc1.iad.amaaaaaac3scrubbedxcjmdz34p3kifm6a",
+    "labels": [
+        "Network"
+    ],
+    "lifecycle_detail": "OPEN",
+    "lifecycle_state": "ACTIVE",
+    "region": "us-ashburn-1",
+    "resource_id": "ocid1.saml2idp.oc1..aaaaaaaa64zcsamlidcscufrlob46q/john.doe@mycompany.com",
+    "resource_name": "john.doe@mycompany.com",
+    "resource_type": "User",
+    "risk_level": "MEDIUM",
+    "target_id": "ocid1.cloudguardtarget.oc1.iad.amaaatargetxyxqtlhjqs6ujhsbqot7zo2247bhcqoja",
+    "time_first_detected": "2020-09-29T20:11:41.978000+00:00",
+    "time_last_detected": "2020-09-29T20:11:41.978000+00:00"
+}

@@ -1,0 +1,51 @@
+{
+    "time": "",                     # Time alert is enriched
+    "creationTime":"",              # Event time
+    "alertSource": "",              # Service that sent event
+    "accountId": "",                # Source Account ID 
+    "accountName": "", 
+    "regionId": "",            
+    "eventName": "",
+    "eventDescription": "", 
+    "resoruceName", 
+    "eventDetails": {
+        "eventType": "",
+        "resourceId": "",
+        "resourceName": "",
+        "severityNum": "",
+        "severityString": "", 
+        "iam": {
+            "roleId": "", 
+            "roleName": "",
+            "arn": "", 
+            ""
+        },
+        "network": {
+            "sourceIP": "",
+
+         }
+    }
+}
+
+# Our standard fields 
+
+## From dynamo using accountId from alert to ref meta-data
+
+accountName
+Environment
+AssetOwner
+GroupEmailAddress
+BackupOwner
+
+# From From payload
+
+creationTime
+cloudType     ## in some cases other meta-data: like arn 
+bucketName # if applicable 
+regionId
+regionName
+severity_num
+severity_string
+
+
+service (if multiple data sources flow into same index i.e. Prisma currently)

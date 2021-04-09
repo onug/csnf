@@ -1,0 +1,353 @@
+[{
+    "finding": {
+      "name": "organizations/012345678912/sources/11577459057594297634/findings/05d3b1c97fe4b31a54532373258e44fe",
+      "parent": "organizations/012345678912/sources/11577459057594297634",
+      "resourceName": "//compute.googleapis.com/projects/security-test-295714/global/firewalls/5179282600353345217",
+      "state": "ACTIVE",
+      "category": "OPEN_SSH_PORT",
+      "externalUri": "https://console.cloud.google.com/networking/firewalls/details/default-allow-ssh?project\u003dsecurity-test-295714",
+      "sourceProperties": {
+        "ReactivationCount": 0.0,
+        "Recommendation": "Restrict the firewall rules at: https://console.cloud.google.com/networking/firewalls/details/default-allow-ssh?project\u003dsecurity-test-295714",
+        "OpenPorts": {
+          "TCP": [22.0],
+          "SCTP": [22.0]
+        },
+        "ExposedService": "SSH",
+        "ExceptionInstructions": "Add the security mark \"allow_open_ssh_port\" to the asset with a value of \"true\" to prevent this finding from being activated again.",
+        "SeverityLevel": "High",
+        "ProjectId": "security-test-295714",
+        "ScannerName": "FIREWALL_SCANNER",
+        "Explanation": "Firewall rules that allow connections from all IP addresses on TCP port 22 or SCTP port 22 may expose SSH services to attackers.",
+        "ResourcePath": ["projects/security-test-295714/", "organizations/012345678912/"]
+      },
+      "securityMarks": {
+        "name": "organizations/012345678912/sources/11577459057594297634/findings/05d3b1c97fe4b31a54532373258e44fe/securityMarks"
+      },
+      "eventTime": "2020-11-27T23:48:00.354Z",
+      "createTime": "2020-11-27T23:48:00.749Z",
+      "propertyDataTypes": {
+        "SeverityLevel": {
+          "primitiveDataType": "STRING"
+        },
+        "ResourcePath": {
+          "listValues": {
+            "propertyDataTypes": [{
+              "primitiveDataType": "STRING"
+            }]
+          }
+        },
+        "ReactivationCount": {
+          "primitiveDataType": "NUMBER"
+        },
+        "ExposedService": {
+          "primitiveDataType": "STRING"
+        },
+        "Explanation": {
+          "primitiveDataType": "STRING"
+        },
+        "ScannerName": {
+          "primitiveDataType": "STRING"
+        },
+        "ProjectId": {
+          "primitiveDataType": "STRING"
+        },
+        "ExceptionInstructions": {
+          "primitiveDataType": "STRING"
+        },
+        "Recommendation": {
+          "primitiveDataType": "STRING"
+        },
+        "OpenPorts": {
+          "structValue": {
+            "fields": {
+              "TCP": {
+                "listValues": {
+                  "propertyDataTypes": [{
+                    "primitiveDataType": "NUMBER"
+                  }]
+                }
+              },
+              "SCTP": {
+                "listValues": {
+                  "propertyDataTypes": [{
+                    "primitiveDataType": "NUMBER"
+                  }]
+                }
+              }
+            }
+          }
+        }
+      },
+      "severity": "HIGH",
+      "workflowState": "NEW"
+    },
+    "resource": {
+      "name": "//compute.googleapis.com/projects/security-test-295714/global/firewalls/5179282600353345217",
+      "projectName": "//cloudresourcemanager.googleapis.com/projects/1029334688126",
+      "projectDisplayName": "security-test-295714",
+      "parentName": "//cloudresourcemanager.googleapis.com/projects/1029334688126",
+      "parentDisplayName": "security-test-295714",
+      "type": "google.compute.Firewall"
+    }
+  },{
+    "finding": {
+      "name": "organizations/012345678912/sources/11577459057594297634/findings/3f94d2752cc149fe25ebd6f982d2f80f",
+      "parent": "organizations/012345678912/sources/11577459057594297634",
+      "resourceName": "//compute.googleapis.com/projects/security-test-295714/global/firewalls/2749727048202989249",
+      "state": "ACTIVE",
+      "category": "OPEN_RDP_PORT",
+      "externalUri": "https://console.cloud.google.com/networking/firewalls/details/default-allow-rdp?project\u003dsecurity-test-295714",
+      "sourceProperties": {
+        "ReactivationCount": 0.0,
+        "Recommendation": "Restrict the firewall rules at: https://console.cloud.google.com/networking/firewalls/details/default-allow-rdp?project\u003dsecurity-test-295714",
+        "OpenPorts": {
+          "TCP": [3389.0],
+          "UDP": [3389.0]
+        },
+        "ExposedService": "RDP",
+        "ExceptionInstructions": "Add the security mark \"allow_open_rdp_port\" to the asset with a value of \"true\" to prevent this finding from being activated again.",
+        "SeverityLevel": "High",
+        "ProjectId": "security-test-295714",
+        "ScannerName": "FIREWALL_SCANNER",
+        "Explanation": "Firewall rules that allow connections from all IP addresses on TCP port 3389 or UDP port 3389 may expose RDP services to attackers.",
+        "ResourcePath": ["projects/security-test-295714/", "organizations/012345678912/"]
+      },
+      "securityMarks": {
+        "name": "organizations/012345678912/sources/11577459057594297634/findings/3f94d2752cc149fe25ebd6f982d2f80f/securityMarks"
+      },
+      "eventTime": "2020-11-27T23:48:00.006Z",
+      "createTime": "2020-11-27T23:48:00.357Z",
+      "propertyDataTypes": {
+        "SeverityLevel": {
+          "primitiveDataType": "STRING"
+        },
+        "ResourcePath": {
+          "listValues": {
+            "propertyDataTypes": [{
+              "primitiveDataType": "STRING"
+            }]
+          }
+        },
+        "ReactivationCount": {
+          "primitiveDataType": "NUMBER"
+        },
+        "ExposedService": {
+          "primitiveDataType": "STRING"
+        },
+        "Explanation": {
+          "primitiveDataType": "STRING"
+        },
+        "ScannerName": {
+          "primitiveDataType": "STRING"
+        },
+        "ProjectId": {
+          "primitiveDataType": "STRING"
+        },
+        "ExceptionInstructions": {
+          "primitiveDataType": "STRING"
+        },
+        "Recommendation": {
+          "primitiveDataType": "STRING"
+        },
+        "OpenPorts": {
+          "structValue": {
+            "fields": {
+              "TCP": {
+                "listValues": {
+                  "propertyDataTypes": [{
+                    "primitiveDataType": "NUMBER"
+                  }]
+                }
+              },
+              "UDP": {
+                "listValues": {
+                  "propertyDataTypes": [{
+                    "primitiveDataType": "NUMBER"
+                  }]
+                }
+              }
+            }
+          }
+        }
+      },
+      "severity": "HIGH",
+      "workflowState": "NEW"
+    },
+    "resource": {
+      "name": "//compute.googleapis.com/projects/security-test-295714/global/firewalls/2749727048202989249",
+      "projectName": "//cloudresourcemanager.googleapis.com/projects/1029334688126",
+      "projectDisplayName": "security-test-295714",
+      "parentName": "//cloudresourcemanager.googleapis.com/projects/1029334688126",
+      "parentDisplayName": "security-test-295714",
+      "type": "google.compute.Firewall"
+    }
+  },{
+    "finding": {
+      "name": "organizations/012345678912/sources/11577459057594297634/findings/a833951fa3195ecc27231caaf9149515",
+      "parent": "organizations/012345678912/sources/11577459057594297634",
+      "resourceName": "//cloudresourcemanager.googleapis.com/organizations/012345678912",
+      "state": "ACTIVE",
+      "category": "2SV_NOT_ENFORCED",
+      "externalUri": "https://admin.google.com/AdminHome#ServiceSettings/service\u003dsecuritysetting\u0026subtab\u003dorg",
+      "sourceProperties": {
+        "ReactivationCount": 0.0,
+        "Recommendation": "Go to https://admin.google.com/AdminHome#ServiceSettings/service\u003dsecuritysetting\u0026subtab\u003dorg and enforce 2-Step Verification for all organizational units.",
+        "ActivationTrigger": "The organization has 2 users, 0 enrolled in 2SV, 0 with 2SV enforced, and 0 enrolled in advanced protection.",
+        "ExceptionInstructions": "Add the security mark \"allow_2sv_not_enforced\" to the asset with a value of \"true\" to prevent this finding from being activated again. Or, to prevent findings for a particular organizational unit from being activated again, add the org unit path to a comma-separated list on the \"excluded_orgunits\" security mark. Example: /people/vendors/vendorA,/people/contractors/contractorA",
+        "MfaDetails": {
+          "users": 2.0,
+          "enrolled": 0.0,
+          "enforced": 0.0,
+          "advancedProtection": 0.0
+        },
+        "SeverityLevel": "High",
+        "ScannerName": "MFA_SCANNER",
+        "Explanation": "2-Step Verification (2SV) is disabled for some users in your organization. 2SV can be used to protect accounts from unauthorized access and is the most important tool for protecting your organization against compromised login credentials. Learn more at: https://support.google.com/a/answer/175197",
+        "ResourcePath": ["organizations/012345678912/"]
+      },
+      "securityMarks": {
+        "name": "organizations/012345678912/sources/11577459057594297634/findings/a833951fa3195ecc27231caaf9149515/securityMarks"
+      },
+      "eventTime": "2021-02-10T21:08:30.277Z",
+      "createTime": "2020-11-13T03:04:20.419Z",
+      "propertyDataTypes": {
+        "SeverityLevel": {
+          "primitiveDataType": "STRING"
+        },
+        "ResourcePath": {
+          "listValues": {
+            "propertyDataTypes": [{
+              "primitiveDataType": "STRING"
+            }]
+          }
+        },
+        "ReactivationCount": {
+          "primitiveDataType": "NUMBER"
+        },
+        "MfaDetails": {
+          "structValue": {
+            "fields": {
+              "users": {
+                "primitiveDataType": "NUMBER"
+              },
+              "enrolled": {
+                "primitiveDataType": "NUMBER"
+              },
+              "enforced": {
+                "primitiveDataType": "NUMBER"
+              },
+              "advancedProtection": {
+                "primitiveDataType": "NUMBER"
+              }
+            }
+          }
+        },
+        "Explanation": {
+          "primitiveDataType": "STRING"
+        },
+        "ScannerName": {
+          "primitiveDataType": "STRING"
+        },
+        "ExceptionInstructions": {
+          "primitiveDataType": "STRING"
+        },
+        "Recommendation": {
+          "primitiveDataType": "STRING"
+        },
+        "ActivationTrigger": {
+          "primitiveDataType": "STRING"
+        }
+      },
+      "severity": "HIGH",
+      "workflowState": "NEW"
+    },
+    "resource": {
+      "name": "//cloudresourcemanager.googleapis.com/organizations/012345678912",
+      "type": "google.cloud.resourcemanager.Organization"
+    }
+  },{
+    "finding": {
+      "name": "organizations/012345678912/sources/11577459057594297634/findings/bfb30ba7508c189c0a07b862d14d9b37",
+      "parent": "organizations/012345678912/sources/11577459057594297634",
+      "resourceName": "//cloudresourcemanager.googleapis.com/organizations/012345678912",
+      "state": "ACTIVE",
+      "category": "MFA_NOT_ENFORCED",
+      "externalUri": "https://admin.google.com/AdminHome#ServiceSettings/service\u003dsecuritysetting\u0026subtab\u003dorg",
+      "sourceProperties": {
+        "ReactivationCount": 0.0,
+        "Recommendation": "Go to https://admin.google.com/AdminHome#ServiceSettings/service\u003dsecuritysetting\u0026subtab\u003dorg and enforce 2-Step Verification for all organizational units.",
+        "ActivationTrigger": "The organization has 2 users, 0 enrolled in 2SV, 0 with 2SV enforced, and 0 enrolled in advanced protection.",
+        "ExceptionInstructions": "Add the security mark \"allow_mfa_not_enforced\" to the asset with a value of \"true\" to prevent this finding from being activated again. Or, to prevent findings for a particular organizational unit from being activated again, add the org unit path to a comma-separated list on the \"excluded_orgunits\" security mark. Example: /people/vendors/vendorA,/people/contractors/contractorA",
+        "MfaDetails": {
+          "users": 2.0,
+          "enrolled": 0.0,
+          "enforced": 0.0,
+          "advancedProtection": 0.0
+        },
+        "SeverityLevel": "High",
+        "ScannerName": "MFA_SCANNER",
+        "Explanation": "2-Step Verification (2SV) is disabled for some users in your organization. 2SV can be used to protect accounts from unauthorized access and is the most important tool for protecting your organization against compromised login credentials. Learn more at: https://support.google.com/a/answer/175197",
+        "ResourcePath": ["organizations/012345678912/"]
+      },
+      "securityMarks": {
+        "name": "organizations/012345678912/sources/11577459057594297634/findings/bfb30ba7508c189c0a07b862d14d9b37/securityMarks"
+      },
+      "eventTime": "2021-02-10T21:08:30.277Z",
+      "createTime": "2021-02-10T21:08:32.269Z",
+      "propertyDataTypes": {
+        "SeverityLevel": {
+          "primitiveDataType": "STRING"
+        },
+        "ResourcePath": {
+          "listValues": {
+            "propertyDataTypes": [{
+              "primitiveDataType": "STRING"
+            }]
+          }
+        },
+        "ReactivationCount": {
+          "primitiveDataType": "NUMBER"
+        },
+        "MfaDetails": {
+          "structValue": {
+            "fields": {
+              "users": {
+                "primitiveDataType": "NUMBER"
+              },
+              "enrolled": {
+                "primitiveDataType": "NUMBER"
+              },
+              "enforced": {
+                "primitiveDataType": "NUMBER"
+              },
+              "advancedProtection": {
+                "primitiveDataType": "NUMBER"
+              }
+            }
+          }
+        },
+        "Explanation": {
+          "primitiveDataType": "STRING"
+        },
+        "ScannerName": {
+          "primitiveDataType": "STRING"
+        },
+        "ExceptionInstructions": {
+          "primitiveDataType": "STRING"
+        },
+        "Recommendation": {
+          "primitiveDataType": "STRING"
+        },
+        "ActivationTrigger": {
+          "primitiveDataType": "STRING"
+        }
+      },
+      "severity": "HIGH",
+      "workflowState": "NEW"
+    },
+    "resource": {
+      "name": "//cloudresourcemanager.googleapis.com/organizations/012345678912",
+      "type": "google.cloud.resourcemanager.Organization"
+    }
+  }]

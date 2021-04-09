@@ -1,0 +1,20 @@
+{
+    "CSNFdecorator": [{
+        "todo": "array, could be decorator objects, NIST controls / MITRE TTP 's"
+}],
+"version": ".1",
+"action_required": "true|false|not enough information provided",
+"criticality": "high - need a common definition, criticality score",
+"criticaltiy_score": "on a scale of 1 to 10? - need to determine the scale",
+"resilience_impact": "CIA triad, does this impact service? needs more definition",
+"dependent_resources": "what related components, upstream or downstream are impacted",
+"risk": "customer risk level - needs definition",
+"shared_responsiblity_model": "this relates to the shared responsibilty model of CSP if that can be determined",
+    "security_standard": "this could be related to the security standards/universal security principles of the customer - needs definition",
+    "manual_intervention": true,
+    "decision_maker": "who made the determination and did the mapping and what is the confidence level",
+    "documentation_url": "what definative source was referenced by this decorator",
+    "other_attributes": [{
+        "todo": "consumer provided, name / value pairs needs definition"
+    }]
+}

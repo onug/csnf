@@ -1,0 +1,415 @@
+{
+    "@odata.nextLink": "sanitized", 
+    "value": [
+      {
+        "feedback": null, 
+        "recommendedActions": [], 
+        "networkConnections": [], 
+        "detectionIds": [], 
+        "id": "91azzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", 
+        "category": "UnfamiliarLocation", 
+        "confidence": null, 
+        "fileStates": [], 
+        "severity": "medium", 
+        "title": "Unfamiliar sign-in properties", 
+        "sourceMaterials": [], 
+        "comments": [], 
+        "assignedTo": "", 
+        "eventDateTime": "2019-05-01T23:57:49.4122069Z", 
+        "activityGroupName": null, 
+        "status": "newAlert", 
+        "description": "Sign-in with properties not seen recently for the given user", 
+        "tags": [], 
+        "lastModifiedDateTime": "2019-05-02T00:04:42.7836811Z", 
+        "historyStates": [], 
+        "vendorInformation": {
+          "providerVersion": "3.0", 
+          "vendor": "Microsoft", 
+          "subProvider": null, 
+          "provider": "IPC"
+        }, 
+        "userStates": [
+          {
+            "userPrincipalName": "someone@.somewhere.com", 
+            "emailRole": "unknown", 
+            "isVpn": null, 
+            "userAccountType": null, 
+            "domainName": null, 
+            "onPremisesSecurityIdentifier": null, 
+            "aadUserId": null, 
+            "accountName": "AccountName", 
+            "logonIp": "123.456.789.1", 
+            "logonDateTime": null, 
+            "logonType": null, 
+            "logonLocation": "Seattle, Washington, US", 
+            "riskScore": "0", 
+            "logonId": null
+          }
+        ], 
+        "malwareStates": [], 
+        "processes": [], 
+        "azureTenantId": "sanitized - GUID", 
+        "registryKeyStates": [], 
+        "createdDateTime": "2019-05-01T23:57:49.4122069Z", 
+        "triggers": [], 
+        "hostStates": [], 
+        "cloudAppStates": [], 
+        "closedDateTime": null, 
+        "riskScore": "", 
+        "azureSubscriptionId": null, 
+        "vulnerabilityStates": []
+      }, 
+      {
+        "feedback": null, 
+        "recommendedActions": [
+          "1. Review the IP addresses and determine if they should be communicating with the virtual machine", 
+          "2. Enforce the hardening rule recommended by Security Center which will allow access only to recommended IP addresses. You can edit the rule's properties and change the IP addresses to be allowed, or alternatively edit the Network Security Group's rules directly"
+        ], 
+        "networkConnections": [], 
+        "detectionIds": [], 
+        "id": "sanitized GUID", 
+        "category": "AdaptiveNetworkHardeningInbound", 
+        "confidence": null, 
+        "fileStates": [], 
+        "severity": "low", 
+        "title": "[Preview] Traffic from unrecommended IP addresses was detected", 
+        "sourceMaterials": [], 
+        "comments": [], 
+        "assignedTo": "", 
+        "eventDateTime": "2019-04-30T00:00:08.620205Z", 
+        "activityGroupName": null, 
+        "status": "newAlert", 
+        "description": "Azure security center has detected incoming traffic from IP addresses, which have been identified as IP addresses that should be blocked by the Adaptive Network Hardening control", 
+        "tags": [], 
+        "lastModifiedDateTime": "2019-05-01T08:32:37.2258997Z", 
+        "historyStates": [], 
+        "vendorInformation": {
+          "providerVersion": "3.0", 
+          "vendor": "Microsoft", 
+          "subProvider": null, 
+          "provider": "ASC"
+        }, 
+        "userStates": [], 
+        "malwareStates": [], 
+        "processes": [], 
+        "azureTenantId": "sanitized GUID", 
+        "registryKeyStates": [], 
+        "createdDateTime": "2019-05-01T08:00:42.4071598Z", 
+        "triggers": [], 
+        "hostStates": [], 
+        "cloudAppStates": [], 
+        "closedDateTime": null, 
+        "riskScore": "", 
+        "azureSubscriptionId": "sanitized GUID", 
+        "vulnerabilityStates": []
+      }, 
+      {
+        "id": "sanitized_Guid",
+        "azureTenantId": "sanitized_guid",
+        "azureSubscriptionId": null,
+        "riskScore": null,
+        "tags": [],
+        "activityGroupName": null,
+        "assignedTo": null,
+        "category": "Execution",
+        "closedDateTime": null,
+        "comments": [],
+        "confidence": null,
+        "createdDateTime": "2019-11-26T06:37:57.7220526Z",
+        "description": "*** This is a test alert ***\nA suspicious Powershell commandline was found on the machine. This commandline might be used during installation, exploration, or in some cases with lateral movement activities which are used by attackers to invoke modules, download external payloads, and get more information about the system. Attackers usually use Powershell to bypass security protection mechanisms by executing their payload in memory without touching the disk and leaving any trace.",
+        "detectionIds": [],
+        "eventDateTime": "2019-11-26T06:34:33.667924Z",
+        "feedback": null,
+        "lastModifiedDateTime": "2019-12-01T12:43:30.32Z",
+        "recommendedActions": [],
+        "severity": "informational",
+        "sourceMaterials": [
+            "https://securitycenter.microsoft.com/alert/da637103470779876628_387061971"
+        ],
+        "status": "newAlert",
+        "title": "[Test Alert] Suspicious Powershell commandline",
+        "ProviderStatusCode": "OK",
+        "ProviderEndpoint": "wdatpapi-neu-prd.cloudapp.net",
+        "vendorInformation": {
+            "provider": "Microsoft Defender ATP",
+            "providerVersion": null,
+            "subProvider": "MicrosoftDefenderATP",
+            "vendor": "Microsoft"
+        },
+        "cloudAppStates": [],
+        "fileStates": [
+            {
+                "name": "cmd.exe",
+                "path": "C:\\Windows\\System32\\cmd.exe",
+                "riskScore": null,
+                "fileHash": {
+                    "hashType": "sha1",
+                    "hashValue": "8c5437cd76a89ec983e3b364e219944da3dab464"
+                }
+            },
+            {
+                "name": "powershell.exe",
+                "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "riskScore": null,
+                "fileHash": {
+                    "hashType": "sha1",
+                    "hashValue": "6cbce4a295c163791b60fc23d285e6d84f28ee4c"
+                }
+            }
+        ],
+        "hostStates": [
+            {
+                "fqdn": "sipsvm-us",
+                "isAzureAdJoined": false,
+                "isAzureAdRegistered": null,
+                "isHybridAzureDomainJoined": null,
+                "netBiosName": null,
+                "os": "WindowsServer2019",
+                "privateIpAddress": "10.0.0.7",
+                "publicIpAddress": "104.42.146.203",
+                "riskScore": "None"
+            }
+        ],
+        "historyStates": [],
+        "malwareStates": [],
+        "networkConnections": [],
+        "processes": [],
+        "registryKeyStates": [],
+        "triggers": [],
+        "userStates": [
+            {
+                "aadUserId": null,
+                "accountName": "E2Euser",
+                "domainName": "sipsvm-us",
+                "emailRole": "unknown",
+                "isVpn": null,
+                "logonDateTime": null,
+                "logonId": null,
+                "logonIp": null,
+                "logonLocation": null,
+                "logonType": null,
+                "onPremisesSecurityIdentifier": null,
+                "riskScore": null,
+                "userAccountType": null,
+                "userPrincipalName": null
+            }
+        ],
+        "vulnerabilityStates": []
+    },
+    {
+        "feedback": null, 
+        "recommendedActions": [], 
+        "networkConnections": [], 
+        "detectionIds": [], 
+        "id": "11111111-4444-3333-6666-123456789012", 
+        "category": "MCAS_ALERT_ANUBIS_DETECTION_RISKY_IP_ANONYMOUS", 
+        "confidence": null, 
+        "fileStates": [], 
+        "severity": "medium", 
+        "title": "Activity from a Tor IP address", 
+        "sourceMaterials": [], 
+        "comments": [], 
+        "assignedTo": "", 
+        "eventDateTime": "2019-05-01T07:01:42.85Z", 
+        "activityGroupName": null, 
+        "status": "newAlert", 
+        "description": "The Tor IP address 111.222.333.444 was used by SomeOne's Name (someone@somewhere.com). Additional risks in this user session: 111.222.333.444 was used for the first time in 67 days in your organization. 111.222.333.444 was used for the first time in 67 days by this user. ISP OVH Hosting was used for the first time in 67 days by this user. Operating system Windows was used for the first time in 67 days by this user.", 
+        "tags": [], 
+        "lastModifiedDateTime": "2019-05-01T07:22:16.4240397Z", 
+        "historyStates": [], 
+        "vendorInformation": {
+          "providerVersion": "3.0", 
+          "vendor": "Microsoft", 
+          "subProvider": null, 
+          "provider": "MCAS"
+        }, 
+        "userStates": [
+          {
+            "userPrincipalName": "someone@somewhere.com", 
+            "emailRole": "unknown", 
+            "isVpn": null, 
+            "userAccountType": null, 
+            "domainName": null, 
+            "onPremisesSecurityIdentifier": null, 
+            "aadUserId": null, 
+            "accountName": "someoneAccount", 
+            "logonIp": null, 
+            "logonDateTime": null, 
+            "logonType": null, 
+            "logonLocation": null, 
+            "riskScore": "0", 
+            "logonId": null
+          }
+        ], 
+        "malwareStates": [], 
+        "processes": [], 
+        "azureTenantId": "sanitized_GUID", 
+        "registryKeyStates": [], 
+        "createdDateTime": "2019-05-01T07:22:15.557Z", 
+        "triggers": [], 
+        "hostStates": [], 
+        "cloudAppStates": [
+          {
+            "destinationServiceIp": null, 
+            "riskScore": "0", 
+            "destinationServiceName": "Office 365"
+          }
+        ], 
+        "closedDateTime": null, 
+        "riskScore": "", 
+        "azureSubscriptionId": null, 
+        "vulnerabilityStates": []
+      },
+      {
+        "feedback": null, 
+        "recommendedActions": [], 
+        "networkConnections": [], 
+        "detectionIds": [], 
+        "id": "333333333-1111-4444-6666-67363345", 
+        "category": "ThreatManagement", 
+        "confidence": null, 
+        "fileStates": [], 
+        "severity": "low", 
+        "title": "Creation of forwarding/redirect rule", 
+        "sourceMaterials": [], 
+        "comments": [
+          "New alert"
+        ], 
+        "assignedTo": null, 
+        "eventDateTime": "2019-05-01T06:20:00Z", 
+        "activityGroupName": null, 
+        "status": "newAlert", 
+        "description": "This alert is triggered when someone in your organization sets up auto-forwarding, email forwarding, redirect rule or a mail flow rule -V1.0.0.4", 
+        "tags": [], 
+        "lastModifiedDateTime": null, 
+        "historyStates": [], 
+        "vendorInformation": {
+          "providerVersion": null, 
+          "vendor": "Microsoft", 
+          "subProvider": null, 
+          "provider": "Office 365 Security and Compliance"
+        }, 
+        "userStates": [
+          {
+            "userPrincipalName": "someone@somwplace.com", 
+            "emailRole": "unknown", 
+            "isVpn": null, 
+            "userAccountType": null, 
+            "domainName": "somwplace.com", 
+            "onPremisesSecurityIdentifier": null, 
+            "aadUserId": null, 
+            "accountName": "someAccount", 
+            "logonIp": null, 
+            "logonDateTime": null, 
+            "logonType": null, 
+            "logonLocation": null, 
+            "riskScore": null, 
+            "logonId": null
+          }
+        ], 
+        "malwareStates": [], 
+        "processes": [], 
+        "azureTenantId": "sanitized_GUID", 
+        "registryKeyStates": [], 
+        "createdDateTime": "2019-05-01T06:20:00Z", 
+        "triggers": [], 
+        "hostStates": [], 
+        "cloudAppStates": [], 
+        "closedDateTime": null, 
+        "riskScore": null, 
+        "azureSubscriptionId": null, 
+        "vulnerabilityStates": []
+      }, 
+      {
+        "category": "ForgedPrincipalSecurityAlert",
+        "closedDateTime": null,
+        "cloudAppStates": [],
+        "comments": [],
+        "createdDateTime": "2019-01-23T18:13:31.3775991+00:00",
+        "description": "domain1.test.local\\fake, which does not exist in Active Directory, used a Kerberos ticket from 2 computers to access 3 resources.",
+        "detectionIds": [],
+        "eventDateTime": "2019-01-21T17:04:38.0932783+00:00",
+        "fileStates": [],
+        "hostStates": [
+          {
+            "fqdn": "",
+            "netBiosName": "Client12",
+            "privateIpAddress": "234.456.789.0"
+          },
+          {
+            "fqdn": "",
+            "netBiosName": "aa1"
+          },
+          {
+            "fqdn": "",
+            "netBiosName": "client34",
+            "privateIpAddress": "123.345.567.0"
+          }
+        ],
+        "historyStates": [],
+        "lastModifiedDateTime": "2019-03-05T23:51:51.9394738+00:00",
+        "malwareStates": [],
+        "networkConnections": [],
+        "processes": [],
+        "recommendedActions": [],
+        "registryKeyStates": [],
+        "severity": "high",
+        "sourceMaterials": [ "https://aka.ms/atasaguide-nonexist" ],
+        "status": "newAlert",
+        "title": "Suspected Golden Ticket usage (nonexistent account)",
+        "triggers": [],
+        "userStates": [],
+        "vulnerabilityStates": [],
+        "tags": [],
+        "id": "abcdef-2345-1234-4567-asdfghjkl124",
+        "azureTenantId": "sanitized_GUID",
+        "vendorInformation": {
+          "provider": "Azure Advanced Threat Protection",
+          "providerVersion": "2.64.0.0",
+          "vendor": "Microsoft"
+        }
+      }, 
+      {
+        "feedback": null, 
+        "recommendedActions": [], 
+        "networkConnections": [], 
+        "detectionIds": [], 
+        "id": "12345-1234-567-2345-1234566799ea", 
+        "category": "12345-12345-1222-123466_aaaa-12345-12344-23455666", 
+        "confidence": null, 
+        "fileStates": [], 
+        "severity": "medium", 
+        "title": "Failed Logon Attempts within 10 mins", 
+        "sourceMaterials": [], 
+        "comments": [], 
+        "assignedTo": null, 
+        "eventDateTime": "2019-05-01T21:31:04.476743Z", 
+        "activityGroupName": null, 
+        "status": "newAlert", 
+        "description": " A low level alert should occur when failed logon attempts are 6 or higher during a 10 minute period.", 
+        "tags": [], 
+        "lastModifiedDateTime": null, 
+        "historyStates": [], 
+        "vendorInformation": {
+          "providerVersion": null, 
+          "vendor": "Microsoft", 
+          "subProvider": null, 
+          "provider": "Azure Sentinel"
+        }, 
+        "userStates": [], 
+        "malwareStates": [], 
+        "processes": [], 
+        "azureTenantId": "sanitized_GUID", 
+        "registryKeyStates": [], 
+        "createdDateTime": "2019-05-01T21:51:12.2385427Z", 
+        "triggers": [], 
+        "hostStates": [], 
+        "cloudAppStates": [], 
+        "closedDateTime": null, 
+        "riskScore": null, 
+        "azureSubscriptionId": "sanitized_GUID", 
+        "vulnerabilityStates": []
+      }
+    ]
+  }
+  
