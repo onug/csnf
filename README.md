@@ -73,16 +73,26 @@ But for all the benefits of a multi-cloud strategy, there are some challenges th
 
 
 
-![](./arch/img/CSNF-Decorator-MVP.png)
+![](./arch/img/CSNF-BasicDecorator.png)
 
 
 
 
 
-## 1.5. CSNF Decorator - Implementation Concept
+## 1.5. CSNF Decorator
 
 
 
 
 
-![](./arch/img/CSNF-Decorator-Design.png)
+![](./arch/img/CSNF-Decorate.png)
+
+
+
+
+
+
+
+## 1.6. CSNF Decorator Semantic Diagram Flow
+
+![](./arch/img/CSNF-Flow.png)
