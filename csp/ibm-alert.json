@@ -1,0 +1,151 @@
+Incident 1 - Bot detected
+ 
+{
+    "security-advisor-alerts": [
+        {
+            "severity": "LOW",
+            "issuer": "IBM Security Advisor",
+            "issuer-url": "https://cloud.ibm.com/security-advisor#/findings?id=SANITIZED-GUID/providers/security-advisor/occurrences/xforce-1618266561869-328&region=us-south",
+            "id": "SANITIZED-GUID/providers/security-advisor/occurrences/xforce-1618266561869-328",
+            "payload-type": "findings",
+            "payload-link": "https://us-south.secadvisor.cloud.ibm.com/findings",
+            "provider": "crn:v1:bluemix:public:is:us-south-3:a/SANITIZED-GUID::instance:0737_d99dbab0-d356-4eb3-8981-e68eeaabd494",
+            "payload": {
+                "author": {
+                    "account_id": "SANITIZED-GUID",
+                    "email": null,
+                    "id": "iam-ServiceId-7b4398db-219e-4174-b4f5-c6e31970c7dc",
+                    "kind": "service-id"
+                },
+                "context": {
+                    "account_id": "SANITIZED-GUID",
+                    "region": "us-south",
+                    "resource_name": "crn:v1:bluemix:public:is:us-south-3:a/SANITIZED-GUID::instance:0737_d99dbab0-d356-4eb3-8981-e68eeaabd494",
+                    "resource_type": "Network interface",
+                    "service_crn": "crn:v1:bluemix:public:is:us-south-3:a/SANITIZED-GUID::instance:0737_d99dbab0-d356-4eb3-8981-e68eeaabd494",
+                    "service_name": "Virtual server instance"
+                },
+                "create_time": "2021-04-12T22:29:25.479881Z",
+                "create_timestamp": 1618266565480,
+                "finding": {
+                    "certainty": "HIGH",
+                    "data_transferred": {
+                        "client_bytes": 1513,
+                        "client_packets": 12,
+                        "server_bytes": 2453,
+                        "server_packets": 14
+                    },
+                    "ipClassification": "bot",
+                    "network": {
+                        "client": {
+                            "ip": "27.128.244.13",
+                            "port": 50244
+                        },
+                        "server": {
+                            "ip": "10.240.128.4",
+                            "port": 22
+                        }
+                    },
+                    "next_steps": [
+                        {
+                            "title": "Learn why this client was flagged as suspicious",
+                            "url": "https://exchange.xforce.ibmcloud.com/ip/27.128.244.13"
+                        },
+                        {
+                            "title": "Consider protecting your asset with additional network protection coverage"
+                        }
+                    ],
+                    "severity": "LOW"
+                },
+                "id": "xforce-1618266561869-328",
+                "insertion_timestamp": 1618266565480,
+                "kind": "FINDING",
+                "long_description": "Your asset was observed interacting with a suspicious client (two-way communication observed)",
+                "name": "SANITIZED-GUID/providers/security-advisor/occurrences/xforce-1618266561869-328",
+                "note_name": "SANITIZED-GUID/providers/security-advisor/notes/xforce-client_response",
+                "provider_id": "security-advisor",
+                "provider_name": "SANITIZED-GUID/providers/security-advisor",
+                "reported_by": {
+                    "id": "xforce",
+                    "title": "Network insights",
+                    "url": "https://www.ibm.com/security/xforce"
+                },
+                "short_description": "Risky Behaviour: Communication with a suspicious client",
+                "update_time": "2021-04-12T22:29:25.479765Z",
+                "update_timestamp": 1618266565480,
+                "update_week_date": "2021-W15-1",
+                "corelationId": "f8ace71a-65ab-49ab-97d9-50b07d185e4f"
+            }
+        }
+    ]
+}
+ 
+Incident 2 - Port scanner detected
+{
+    "security-advisor-alerts": [
+      {
+        "severity": "MEDIUM",
+        "issuer": "IBM Security Advisor",
+        "issuer-url": "https://cloud.ibm.com/security-advisor#/findings?id=SANITIZED-GUID/providers/security-advisor/occurrences/xforce-1618266561867-327&region=us-south",
+        "id": "SANITIZED-GUID/providers/security-advisor/occurrences/xforce-1618266561867-327",
+        "payload-type": "findings",
+        "payload-link": "https://us-south.secadvisor.cloud.ibm.com/findings",
+        "provider": "crn:v1:bluemix:public:is:us-south-3:a/SANITIZED-GUID::instance:0737_d99dbab0-d356-4eb3-8981-e68eeaabd494",
+        "payload": {
+          "author": {
+            "account_id": "SANITIZED-GUID",
+            "email": null,
+            "id": "iam-ServiceId-7b4398db-219e-4174-b4f5-c6e31970c7dc",
+            "kind": "service-id"
+          },
+          "context": {
+            "account_id": "SANITIZED-GUID",
+            "region": "us-south",
+            "resource_name": "crn:v1:bluemix:public:is:us-south-3:a/SANITIZED-GUID::instance:0737_d99dbab0-d356-4eb3-8981-e68eeaabd494",
+            "resource_type": "Network interface",
+            "service_crn": "crn:v1:bluemix:public:is:us-south-3:a/SANITIZED-GUID::instance:0737_d99dbab0-d356-4eb3-8981-e68eeaabd494",
+            "service_name": "Virtual server instance"
+          },
+          "create_time": "2021-04-12T22:29:23.814141Z",
+          "create_timestamp": 1618266563814,
+          "finding": {
+            "certainty": "HIGH",
+            "ipClassification": "scanner",
+            "network": {
+              "client": {
+                "ip": "117.50.25.109"
+              }
+            },
+            "next_steps": [
+              {
+                "title": "Learn why this client was flagged as suspicious",
+                "url": "https://exchange.xforce.ibmcloud.com/ip/117.50.25.109"
+              },
+              {
+                "title": "Consider protecting your asset with additional network protection coverage"
+              }
+            ],
+            "severity": "MEDIUM"
+          },
+          "id": "xforce-1618266561867-327",
+          "insertion_timestamp": 1618266563814,
+          "kind": "FINDING",
+          "long_description": "A peer with bad reputation is excessively approaching open ports and might be scanning for asset vulnerabilities",
+          "name": "SANITIZED-GUID/providers/security-advisor/occurrences/xforce-1618266561867-327",
+          "note_name": "SANITIZED-GUID/providers/security-advisor/notes/xforce-vulnerability_scan",
+          "provider_id": "security-advisor",
+          "provider_name": "SANITIZED-GUID/providers/security-advisor",
+          "reported_by": {
+            "id": "xforce",
+            "title": "Network insights",
+            "url": "https://www.ibm.com/security/xforce"
+          },
+          "short_description": "Asset Recruitment: Finding Vulnerabilities by a suspicious client",
+          "update_time": "2021-04-12T22:29:23.814039Z",
+          "update_timestamp": 1618266563814,
+          "update_week_date": "2021-W15-1",
+          "corelationId": "feb262b8-4ff2-47bc-8d5b-af944452144a"
+        }
+      }
+    ]
+  }
