@@ -1,0 +1,136 @@
+{
+  "dictionary.name": "aquasec",
+  "dictionary.version": "0.0.1",
+  "event.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.control"
+    }
+  ],
+  "event.guid": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].id"
+    }
+  ],
+  "event.url": [],
+  "event.shortDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.reason"
+    }
+  ],
+  "event.longDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.reason"
+    }
+  ],
+  "event.severity": "high",
+  "event.time": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].time"
+    }
+  ],
+  "reporter.name": "Aqua Security",
+  "producer.name": "Aqua Security",
+  "resource.accountId": [],
+  "resource.platform": "Azure",
+  "resource.guid": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.containerid"
+    }
+  ],
+  "resource.type": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.category"
+    }
+  ],
+  "resource.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.container"
+    }
+  ],
+  "resource.service": "Azure Kubernetes Service",
+  "resource.region": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.vm_location"
+    }
+  ],
+  "resource.package": [
+    {
+      "processor": "jsonpath",
+      "command": "$.result[0].data"
+    },
+    {
+      "processor": "json",
+      "command": "parse"
+    },
+    {
+      "processor": "jsonpath",
+      "command": "$.image"
+    }
+  ]
+}
+

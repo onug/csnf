@@ -1,0 +1,132 @@
+{
+  "dictionary.name": "sysdig-secure",
+  "dictionary.version": "0.0.1",
+  "event.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.entities[0].policyEvents[0].name"
+    }
+  ],
+  "event.guid": [],
+  "event.url": [
+    {
+      "processor": "jsonpath",
+      "command": "$.event.url"
+    }
+  ],
+  "event.shortDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$.entities[0].policyEvents[0].description"
+    }
+  ],
+  "event.longDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$.entities[0].policyEvents[0].description"
+    }
+  ],
+  "event.severity": [
+    {
+      "processor": "jsonpath",
+      "command": "$.alert.severityLabel"
+    },
+    {
+      "processor": "string",
+      "command": "to-lower-case"
+    }
+  ],
+  "event.time": [
+    {
+      "processor": "jsonpath",
+      "command": "$.timestamp"
+    }
+  ],
+  "reporter.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.source"
+    }
+  ],
+  "producer.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.source"
+    }
+  ],
+  "resource.accountId": [
+    {
+      "processor": "jsonpath",
+      "command": "$.event.url"
+    },
+    {
+      "processor": "string",
+      "command": "regex",
+      "param": "^(?:[^\\/]*\\/){8}([^\\/]*)"
+    },
+    {
+      "processor": "array",
+      "command": "element-at-index",
+      "param": 1
+    }
+  ],
+  "resource.guid": [
+    {
+      "processor": "jsonpath",
+      "command": "$.entities[0].policyEvents[0].fields[?(@.key==\"container.id\")].value"
+    }
+  ],
+  "resource.type": "container",
+  "resource.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.entities[0].policyEvents[0].fields[?(@.key==\"container.name\")].value"
+    }
+  ],
+  "resource.service": "IBM Kubernetes Service",
+  "resource.region": [
+    {
+      "processor": "jsonpath",
+      "command": "$.event.url"
+    },
+    {
+      "processor": "string",
+      "command": "regex",
+      "param": "^(?:[^\\/]*.){2}([^.]*)"
+    },
+    {
+      "processor": "array",
+      "command": "element-at-index",
+      "param": 1
+    }
+  ],
+  "resource.package": [
+    {
+      "processor": "string",
+      "command": "concat",
+      "param": [
+        [
+          {
+            "processor": "jsonpath",
+            "command": "$.entities[0].policyEvents[0].eventLabels[?(@.key==\"container.image.repo\")].value"
+          }
+        ],
+        [
+          {
+            "processor": "string",
+            "command": "static",
+            "param": ":"
+          }
+        ],
+        [
+          {
+            "processor": "jsonpath",
+            "command": "$.entities[0].policyEvents[0].eventLabels[?(@.key==\"container.image.tag\")].value"
+          }
+        ]
+      ]
+    }
+  ],
+  "resource.platform": "ibm-cloud"
+}
+

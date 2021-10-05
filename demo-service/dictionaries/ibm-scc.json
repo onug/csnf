@@ -1,0 +1,96 @@
+{
+  "dictionary.name": "ibm-cloud-security-and-compliance-center",
+  "dictionary.version": "0.0.1",
+  "event.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.short_description"
+    }
+  ],
+  "event.guid": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].id"
+    }
+  ],
+  "event.url": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0]['issuer-url']"
+    }
+  ],
+  "event.shortDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.long_description"
+    }
+  ],
+  "event.longDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.long_description"
+    }
+  ],
+  "event.severity": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].severity"
+    },
+    {
+      "processor": "string",
+      "command": "to-lower-case"
+    }
+  ],
+  "event.time": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.create_timestamp"
+    }
+  ],
+  "reporter.name": "IBM Security and Compliance Center",
+  "producer.name": "IBM Security and Compliance Center",
+  "resource.accountId": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.context.account_id"
+    }
+  ],
+  "resource.platform": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.context.environment_name"
+    }
+  ],
+  "resource.guid": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.context.resource_id"
+    }
+  ],
+  "resource.type": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.context.resource_type"
+    }
+  ],
+  "resource.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.context.resource_name"
+    }
+  ],
+  "resource.service": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.context.service_name"
+    }
+  ],
+  "resource.region": [
+    {
+      "processor": "jsonpath",
+      "command": "$['security-advisor-alerts'][0].payload.context.region"
+    }
+  ],
+  "resource.package": []
+}
+

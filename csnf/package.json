@@ -1,0 +1,39 @@
+{
+  "name": "onug-csnf",
+  "version": "0.0.1-6",
+  "description": "ONUG CSNF Framework Prototype",
+  "keywords": [],
+  "author": "ONUG CSNF",
+  "main": "dist/index",
+  "typings": "dist/index",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint ./src ./test",
+    "build": "tsc",
+    "test": "mocha -r ts-node/register test/**/*.ts",
+    "coverage": "nyc npm run test",
+    "prerelease": "npm run lint && npm run test && npm run build && npm version prerelease"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "jsonpath": "^1.1.1",
+    "log4js": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.7.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "mocha": "^9.1.0",
+    "mocha-sinon": "^2.1.2",
+    "nyc": "^15.1.0",
+    "sinon": "^11.1.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  }
+}

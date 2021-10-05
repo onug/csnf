@@ -1,0 +1,100 @@
+{
+  "dictionary.name": "azure-defender",
+  "dictionary.version": "0.0.1",
+  "event.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.AlertDisplayName"
+    }
+  ],
+  "event.guid": [
+    {
+      "processor": "jsonpath",
+      "command": "$.SystemAlertId"
+    }
+  ],
+  "event.url": [
+    {
+      "processor": "jsonpath",
+      "command": "$.AlertUri"
+    }
+  ],
+  "event.shortDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$.Description"
+    }
+  ],
+  "event.longDescription": [
+    {
+      "processor": "jsonpath",
+      "command": "$.Description"
+    }
+  ],
+  "event.severity": [
+    {
+      "processor": "jsonpath",
+      "command": "$.Severity"
+    },
+    {
+      "processor": "string",
+      "command": "to-lower-case"
+    }
+  ],
+  "event.time": [
+    {
+      "processor": "jsonpath",
+      "command": "$.TimeGenerated"
+    }
+  ],
+  "reporter.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.ProductName"
+    }
+  ],
+  "producer.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.ProductName"
+    }
+  ],
+  "resource.accountId": [
+    {
+      "processor": "jsonpath",
+      "command": "$.ResourceIdentifiers[0].AzureResourceTenantId"
+    }
+  ],
+  "resource.platform": [
+    {
+      "processor": "jsonpath",
+      "command": "$.VendorName"
+    }
+  ],
+  "resource.guid": [
+    {
+      "processor": "jsonpath",
+      "command": "$.ResourceIdentifiers[0].AzureResourceId"
+    }
+  ],
+  "resource.type": [
+    {
+      "processor": "jsonpath",
+      "command": "$.ExtendedProperties.resourceType"
+    }
+  ],
+  "resource.name": [
+    {
+      "processor": "jsonpath",
+      "command": "$.ExtendedProperties[\"Container name\"]"
+    }
+  ],
+  "resource.service": [
+    {
+      "processor": "jsonpath",
+      "command": "$.CompromisedEntity"
+    }
+  ],
+  "resource.region": [],
+  "resource.package": []
+}
