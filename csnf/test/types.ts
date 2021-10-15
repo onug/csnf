@@ -15,15 +15,11 @@
  */
 
 import 'mocha';
-import {expect} from 'chai';
-
-import * as Types from '../src/types/types'
+// import {expect} from 'chai';
+//
+// import * as Types from '../src/types/types'
 
 describe('Testing Types', () => {
-    // it('testing severity levels', () => {
-    //     expect(Types.Severity.LOW).to.equal('low');
-    //     expect(Types.Severity.MEDIUM).to.equal('medium');
-    //     expect(Types.Severity.HIGH).to.equal('high');
-    // });
+    console.log('noop');
 });
 

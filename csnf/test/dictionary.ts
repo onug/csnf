@@ -15,13 +15,14 @@
  */
 
 import 'mocha';
-import {expect} from 'chai';
-import * as sinon from 'sinon';
-
-import {ArrayProcessor} from '../src/lib/dictionaries/processors/array';
+// import {expect} from 'chai';
+// import * as sinon from 'sinon';
+//
+// import {ArrayProcessor} from '../src/lib/dictionaries/processors/array';
 
 describe('Testing Dictionary', () => {
     it('testing invalid dictionary file path', () => {
+        console.log('noop');
     });
 });
 
