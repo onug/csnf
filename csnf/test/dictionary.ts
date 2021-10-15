@@ -20,7 +20,7 @@ import * as sinon from 'sinon';
 
 import {ArrayProcessor} from '../src/lib/dictionaries/processors/array';
 
-describe.only('Testing Dictionary', () => {
+describe('Testing Dictionary', () => {
     it('testing invalid dictionary file path', () => {
     });
 });
