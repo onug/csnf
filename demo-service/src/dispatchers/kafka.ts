@@ -14,73 +14,73 @@
  * limitations under the License.
  */
 
-import * as log4js from 'log4js';
-import {CsnfEvent} from 'onug-csnf';
-import {BaseDispatcher, Dispatchers} from "./base-dispatcher";
-import * as Kafka from "node-rdkafka";
-
-const logger = log4js.getLogger('kafka-dispatcher');
-logger.level = process.env.LOG_LEVEL || 'info';
-
-export default class KafkaDispatcher extends BaseDispatcher {
-    private kafkaTopic: string;
-    private kafkaProducer: Kafka.Producer;
-
-    constructor() {
-        super(Dispatchers.KAFKA);
-
-        logger.trace('> constructor');
-        this.kafkaTopic = process.env.KAFKA_TOPIC;
-        this.kafkaProducer = new Kafka.Producer({
-            "metadata.broker.list": process.env.KAFKA_BROKERS,
-            "security.protocol": "sasl_ssl",
-            "sasl.mechanism": 'PLAIN',
-            "sasl.username": process.env.KAFKA_USERNAME,
-            "sasl.password": process.env.KAFKA_PASSWORD,
-            'broker.version.fallback': '0.10.0'
-        });
-        this.kafkaProducer.setPollInterval(1000);
-
-        this.kafkaProducer.connect({topic: this.kafkaTopic}, (err) => {
-            if (err) {
-                logger.error('connection error', err);
-            } else {
-                logger.info('connected');
-            }
-        });
-
-        // @ts-ignore
-        this.kafkaProducer.on('ready', function (log) {
-            logger.info('producer ready');
-        });
-
-        this.kafkaProducer.on('event.error', function (err) {
-            logger.error('producer error', err);
-        });
-
-        logger.trace('< constructor');
-    }
-
-    async dispatch(originalEvent: any, csnfEvent: CsnfEvent, csnfDecoration: any) {
-        logger.trace('> dispatch');
-
-        const payload = {
-            event: csnfEvent,
-            decoration: csnfDecoration
-        };
-
-        if (this.kafkaProducer.isConnected()) {
-            try {
-                this.kafkaProducer.produce(this.kafkaTopic, null, Buffer.from(JSON.stringify(payload)));
-                logger.debug('event successfully dispatched');
-            } catch (err) {
-                logger.error('failed to dispatch event', err);
-
-            }
-        }
-
-        logger.trace('< dispatch');
-    }
-}
+// import * as log4js from 'log4js';
+// import {CsnfEvent} from 'onug-csnf';
+// import {BaseDispatcher, Dispatchers} from "./base-dispatcher";
+// import * as Kafka from "node-rdkafka";
+//
+// const logger = log4js.getLogger('kafka-dispatcher');
+// logger.level = process.env.LOG_LEVEL || 'info';
+//
+// export default class KafkaDispatcher extends BaseDispatcher {
+//     private kafkaTopic: string;
+//     private kafkaProducer: Kafka.Producer;
+//
+//     constructor() {
+//         super(Dispatchers.KAFKA);
+//
+//         logger.trace('> constructor');
+//         this.kafkaTopic = process.env.KAFKA_TOPIC;
+//         this.kafkaProducer = new Kafka.Producer({
+//             "metadata.broker.list": process.env.KAFKA_BROKERS,
+//             "security.protocol": "sasl_ssl",
+//             "sasl.mechanism": 'PLAIN',
+//             "sasl.username": process.env.KAFKA_USERNAME,
+//             "sasl.password": process.env.KAFKA_PASSWORD,
+//             'broker.version.fallback': '0.10.0'
+//         });
+//         this.kafkaProducer.setPollInterval(1000);
+//
+//         this.kafkaProducer.connect({topic: this.kafkaTopic}, (err) => {
+//             if (err) {
+//                 logger.error('connection error', err);
+//             } else {
+//                 logger.info('connected');
+//             }
+//         });
+//
+//         // @ts-ignore
+//         this.kafkaProducer.on('ready', function (log) {
+//             logger.info('producer ready');
+//         });
+//
+//         this.kafkaProducer.on('event.error', function (err) {
+//             logger.error('producer error', err);
+//         });
+//
+//         logger.trace('< constructor');
+//     }
+//
+//     async dispatch(originalEvent: any, csnfEvent: CsnfEvent, csnfDecoration: any) {
+//         logger.trace('> dispatch');
+//
+//         const payload = {
+//             event: csnfEvent,
+//             decoration: csnfDecoration
+//         };
+//
+//         if (this.kafkaProducer.isConnected()) {
+//             try {
+//                 this.kafkaProducer.produce(this.kafkaTopic, null, Buffer.from(JSON.stringify(payload)));
+//                 logger.debug('event successfully dispatched');
+//             } catch (err) {
+//                 logger.error('failed to dispatch event', err);
+//
+//             }
+//         }
+//
+//         logger.trace('< dispatch');
+//     }
+// }
 
 
