@@ -1,6 +1,6 @@
 {
   "name": "onug-csnf",
-  "version": "0.0.1-6",
+  "version": "0.0.1-8",
   "description": "ONUG CSNF Framework Prototype",
   "keywords": [],
   "author": "ONUG CSNF",
@@ -15,8 +15,15 @@
     "prerelease": "npm run lint && npm run test && npm run build && npm version prerelease"
   },
   "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
     "dist/**/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onug/CSNF.git"
+  },
   "dependencies": {
     "jsonpath": "^1.1.1",
     "log4js": "^6.3.0"

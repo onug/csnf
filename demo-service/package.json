@@ -16,10 +16,9 @@
     "ibm-security-advisor": "^6.0.0",
     "jsonpath": "^1.1.1",
     "jsonwebtoken": "^8.5.1",
-    "kafka-node": "^5.0.0",
     "log4js": "^6.3.0",
     "moment": "^2.29.1",
-    "node-rdkafka": "^2.10.1",
+    "onug-csnf": "^0.0.1-6",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

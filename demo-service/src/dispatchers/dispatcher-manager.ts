@@ -21,7 +21,7 @@ import IbmSccDispatcher from "./ibm-scc";
 import AzureSentinelDispatcher from "./azure-sentinel";
 import AzureMonitorDispatcher from "./azure-monitor";
 import SplunkDispatcher from "./splunk";
-import KafkaDispatcher from "./kafka";
+// import KafkaDispatcher from "./kafka";
 import QradarDispatcher from "./qradar";
 import DebugDispatcher from "./debug";
 import {CsnfEvent} from "onug-csnf";
