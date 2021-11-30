@@ -18,7 +18,7 @@ import * as log4js from "log4js";
 import {CsnfEvent} from 'onug-csnf';
 
 const logger = log4js.getLogger('base-dispatcher');
-logger.level = process.env.LOG_LEVEL || 'info';
+logger.level = process.env.LOG_LEVEL || 'debug';
 
 export enum Dispatchers {
     IBM_SCC = 'ibm-scc',

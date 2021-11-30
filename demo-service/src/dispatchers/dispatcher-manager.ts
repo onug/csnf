@@ -27,7 +27,7 @@ import DebugDispatcher from "./debug";
 import {CsnfEvent} from "onug-csnf";
 
 const logger = log4js.getLogger('dispatcher-manager');
-logger.level = process.env.LOG_LEVEL || 'info';
+logger.level = process.env.LOG_LEVEL || 'debug';
 
 
 export default class DispatcherManager {
@@ -36,12 +36,11 @@ export default class DispatcherManager {
 
     constructor() {
         logger.trace('> constructor');
-        this.dispatchers.push(new DebugDispatcher());
-
+        // this.dispatchers.push(new DebugDispatcher());
         // this.dispatchers.push(new IbmSccDispatcher());
         // this.dispatchers.push(new AzureSentinelDispatcher());
         // this.dispatchers.push(new AzureMonitorDispatcher());
-        // this.dispatchers.push(new SplunkDispatcher());
+        this.dispatchers.push(new SplunkDispatcher());
         // this.dispatchers.push(new KafkaDispatcher());
         // this.dispatchers.push(new QradarDispatcher());
         logger.trace('< constructor');

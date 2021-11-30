@@ -21,7 +21,7 @@ import * as https from "https";
 import {BaseDispatcher, Dispatchers} from "./base-dispatcher";
 
 const logger = log4js.getLogger('splunk-dispatcher');
-logger.level = process.env.LOG_LEVEL || 'info';
+logger.level = process.env.LOG_LEVEL || 'debug';
 
 export default class SplunkDispatcher extends BaseDispatcher {
     private splunkUrl: string

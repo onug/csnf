@@ -29,7 +29,11 @@ import {
 } from "./receivers";
 
 const logger = log4js.getLogger('server');
-logger.level = process.env.LOG_LEVEL || 'info';
+logger.level = process.env.LOG_LEVEL || 'debug';
+
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(`The SPLUNK_URL is ${process.env.SPLUNK_URL}`);
 
 class ServerApp {
     async start() {
@@ -43,22 +47,22 @@ class ServerApp {
         const csnf = new Csnf();
 
         // Register a set of dictionaries
-        csnf.registerDictionary('./dictionaries/sysdig-secure.json');
+        //csnf.registerDictionary('./dictionaries/sysdig-secure.json');
         csnf.registerDictionary('./dictionaries/aquasec.json');
-        csnf.registerDictionary('./dictionaries/ibm-scc.json');
-        csnf.registerDictionary('./dictionaries/azure-defender.json');
-        csnf.registerDictionary('./dictionaries/oracle-cloud-guard.json');
+        //csnf.registerDictionary('./dictionaries/ibm-scc.json');
+        //csnf.registerDictionary('./dictionaries/azure-defender.json');
+        //csnf.registerDictionary('./dictionaries/oracle-cloud-guard.json');
 
         // Register a set of decorators
         // csnf.registerDecorator(new DockerhubDecorator());
-
+        csnf.registerDecorator(new DockerhubDecorator());
         // Add receivers
         const dispatcherManager = new DispatcherManager();
-        server.use('/receivers/sysdig-secure', new SysdigSecureReceiver(csnf, dispatcherManager).router);
+        //server.use('/receivers/sysdig-secure', new SysdigSecureReceiver(csnf, dispatcherManager).router);
         server.use('/receivers/aquasec', new AquasecReceiver(csnf, dispatcherManager).router);
-        server.use('/receivers/ibm-scc', new IBMCloudSecurityAndComplianceCenterReceiver(csnf, dispatcherManager).router);
-        server.use('/receivers/azure-defender', new AzureDefenderReceiver(csnf, dispatcherManager).router);
-        server.use('/receivers/oracle-cloud-guard', new OracleCloudGuardReceiver(csnf, dispatcherManager).router);
+        //server.use('/receivers/ibm-scc', new IBMCloudSecurityAndComplianceCenterReceiver(csnf, dispatcherManager).router);
+        //server.use('/receivers/azure-defender', new AzureDefenderReceiver(csnf, dispatcherManager).router);
+        //server.use('/receivers/oracle-cloud-guard', new OracleCloudGuardReceiver(csnf, dispatcherManager).router);
 
         server.use((req, res) => {
             res.status(404).send('not found');

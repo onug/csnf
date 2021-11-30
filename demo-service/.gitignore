@@ -3,3 +3,4 @@
 /dist
 /src/**/*.js
 /test/**/*.js
+.env

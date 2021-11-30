@@ -32,7 +32,7 @@ export default abstract class BaseReceiver {
 
     protected constructor(csnf: Csnf, dispatcherManager: DispatcherManager, dictionaryName: string, dispatchers: Dispatchers[] = []) {
         this.logger = log4js.getLogger(dictionaryName + '-receiver');
-        this.logger.level = process.env.LOG_LEVEL || 'info';
+        this.logger.level = process.env.LOG_LEVEL || 'debug';
         this.logger.trace('> constructor', dictionaryName);
         this.csnf = csnf;
         this.dispatcherManager = dispatcherManager;
