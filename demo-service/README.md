@@ -4,6 +4,12 @@
 
 To see what's changed in the current version, see [CHANGES.md](https://github.com/onug/CSNF/blob/main/demo-service/CHANGES.md)
 
+# Demo Overview
+
+The CSNF demo comes packaged with a Dockerfile. Please see the next section for instructions on how to set up Docker on your machine. The architecture for the CSNF demo service that gets deployed with Docker is shown below.
+
+![Demo-service diagram](img/demo-flow.svg)
+
 # Download and install Docker
 
 This tutorial assumes you have a current version of Docker installed on your machine. If you do not have Docker installed, head on over to the Docker documentation [getting started](https://docs.docker.com/get-started/). For Docker Desktop installation instructions, see Install Docker [Desktop on Mac](https://docs.docker.com/desktop/mac/install/) and Install [Docker Desktop](https://docs.docker.com/desktop/windows/install/) on Windows.
