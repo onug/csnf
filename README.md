@@ -110,9 +110,13 @@ Below are the supported instructions (processors, commands, params) used in the 
 |string|regex|regex expression|Executes regex expression on the string|
 |string|concat|array of instructions|Executes instructions defined as param and returns concatenated results|
 
+## Contributing
+
+Please read the [CONTRIBUTING.md](./demo-service/CONTRIBUTING.md) page to learn more about how you can contribute to the CSNF `demo-service`.
+
 ## License
 
-Distributed under the Apache-2.0 License, see LICENCE.txt
+Distributed under the Apache-2.0 License, see [LICENCE.txt](./LICENSE.txt)
 
 
 
