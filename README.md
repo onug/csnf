@@ -57,7 +57,7 @@ CSNF defines a Canonical Data Model as well as interpretation and decoration pat
 This repository contains a proof-of-concept implementation of CSNF. The code is split into two directories:
 
 * `csnf` directory contains the core framework of interpreting events
-* `demo-service` directory contains a set of sample dictionaries, as well as a web application receiving events from various event producers and dispatching them to event receivers like Azure Sentinel, IBM Cloud Security Center, IBM QRadar, Splunk and more.  
+* `demo-service` directory contains a set of sample dictionaries, as well as a web application receiving events from various event producers and dispatching them to event receivers like Azure Sentinel, IBM Cloud Security Center, IBM QRadar, Splunk and more.  The `demo-service` can be run in Docker for local testing of CSNF. There is a [README.md](./demo-service/README.md) that explains how to run the `demo-service` using Docker.
 
 ## Building dictionaries
 
