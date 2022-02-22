@@ -113,10 +113,11 @@ Below are the supported instructions (processors, commands, params) used in the 
 ## Contributing
 
 Please read the [CONTRIBUTING.md](./demo-service/CONTRIBUTING.md) page to learn more about how you can contribute to the CSNF `demo-service`.
+PLEASE ALSO READ THE CSNF "CONTRIBUTOR CODE OF CONDUCT" (./Covenant_Code_of_Conduct.md)
 
 ## License
 
-Distributed under the Apache-2.0 License, see [LICENCE.txt](./LICENSE.txt)
+Distributed under the Apache-2.0 License, see [LICENSE.txt](./LICENSE.txt)
 
 
 
