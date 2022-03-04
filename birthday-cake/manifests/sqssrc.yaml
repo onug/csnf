@@ -1,0 +1,21 @@
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSSQSSource
+metadata:
+  name: sqs-guide
+spec:
+  arn: arn:aws:sqs:us-east-1:594905313426:triggermesh
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          key: access_key_id
+          name: awscreds
+      secretAccessKey:
+        valueFromSecret:
+          key: secret_access_key
+          name: awscreds
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: sockeye

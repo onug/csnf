@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export KNATIVE_SERVING_VERSION="1.0.0"
+
+export KNATIVE_EVENTING_VERSION="1.0.0"
+
+export KNATIVE_GCP_VERSION="0.23.0"
+
+export TEKTON_VERSION="0.22.0"
+
+export PROJECT_ID="security-sdbx"
+
+export CLUSTER_NAME="knative-100"
+
+export CLUSTER_REGION="us-east1"
+
+export CLUSTER_ZONE="${CLUSTER_REGION}-b"
+
+export CLUSTER_START_NODE_SIZE=3
+
+export CLUSTER_MAX_NODE_SIZE=10
+
+export CLUSTER_NODE_MACHINE_TYPE="n1-standard-4"
+
+export CLUSTER_MASTER_VERSION="latest"
