@@ -1,15 +1,6 @@
-**The CSNF demo-service runs on Docker**
+### Cloud Security Notification Framework "Birthday Cake Edition"
 
-# Changes
-
-To see what's changed in the current version, see [CHANGES.md](https://github.com/onug/CSNF/blob/spring22/birthday-cake/CHANGES.md)
-
-# CSNF Birthday Cake - Spring 2022
-
-The `CSNF` Spring 2022 demo extends the prior release of the CSNF by including an end-to-end anomalous user activity SOC scenario.
-
-## Implementation storyboard
-**Overview:** `CSNF` is an open standard for standardizing and decorating security events.  `CSNF` is implementation-agnostic which provides optionality for consumers when choosing how to fit `CSNF` into their  security event pipeline. `CSNF's` decorator provides enrichment capabilities allowing rapid event contextualization allow events to be prioritized through SOAR which limits or eliminates the need for human intervention and toil. By filtering out the 'noise' response to threats can be accelerated without having to increase the workload of already overstretched security teams
+CSNF is a newly-developed open standard designed to support the normalization and enrichment of security notifications across multiple cloud platforms, both public and private. It is an implementation-agnostic framework that provides choice for consumers when using CSNF in their security events pipeline. Further, CSNF’s “decorator” component provides event enrichment capabilities, thus allowing rapid event contextualization and limiting the need for human intervention. The result is that esponse to threats can be accelerated without having to increase the workload of already overtaxed security operations teams.
 
 **A.** The `CSNF` demo implementation uses a contemporary event-driven cloud-native micro-services architecture based on open source eliminating proprietary integration. The event-driven architecture enables minimal coupling, which makes this it a good option for modern security operations center (SOC) applications used in large enterprises today.
 
@@ -23,3 +14,10 @@ The `CSNF` Spring 2022 demo extends the prior release of the CSNF by including a
 
    ![Birthday Cake Storyboard - March 8 update](img/csnf-storyboard-bday-cake.png)
 
+
+
+### Changes
+
+To see what's changed in the current version, see [CHANGES.md](https://github.com/onug/CSNF/blob/spring22/birthday-cake/CHANGES.md)
+
+### 
