@@ -5,7 +5,7 @@ CSNF is a newly-developed open standard designed to support the normalization an
 ## Scenario Updates
 
 1. The scenario has been updated to reflect the incident handling life cycle listed in NIST SP 800-61 Rev. 2 Computer Security Incident Handling Guide. 
-2. Anomalous user activity alerts should be investigated for additional indicators of compromise(IOC). The scenario introduces additional MITRE ATT&CK techniques that are IOCs for detecting ransom ware attacks.
+2. Anomalous user activity alerts should be investigated for additional indicators of compromise(IOC). The scenario introduces additional MITRE ATT&CK techniques that are IOCs for detecting ransomware attacks.
 3. Glueware's Config Drift and Audit application will be triggered by the SOAR playbook to perform containment of the affected cloud network segment
 
 
