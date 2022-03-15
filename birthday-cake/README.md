@@ -26,6 +26,10 @@ CSNF is a newly-developed open standard designed to support the normalization an
 
 **F.** Glueware will trigger a terraform plan and apply the plan based on the prior configuration state in order to restore the network configuration and contain the threat. 
 
+### TODO's
+
+See the [TODO.md](https://github.com/onug/CSNF/blob/spring22/birthday-cake/TODO.md)
+
 ### Changes
 
 To see what's changed in the current version, see [CHANGES.md](https://github.com/onug/CSNF/blob/spring22/birthday-cake/CHANGES.md)
