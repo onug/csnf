@@ -14,12 +14,11 @@
 
 **C to D** 
 
-**External decorator sources for CSNF - based on Customer Risk API **
-**Internal decorator sources for CSNF - Azure Threat Intelligence**
+**External decorator sources for CSNF - based on Customer Risk API; Internal decorator sources for CSNF - Azure Threat Intelligence**
 
 - [ ] Configure and test internal decorator source - using the Risk API and integrate to playbook (Peter)
 - [ ] Determine external decorator source - do this in Sentnel using Azure Threat Intelligence? (Preeti)
-- [ ] Update playbook > Jira > Splunk integration as required for Azure and GCP events (Peter/Preeti)
+- [ ] Update playbook > Jira > Slack integration as required for Azure and GCP events (Peter/Preeti)
 - [ ] Update the Sentinel Playbook to send the Sentinel event to Gluware's HTTPS endpoint (Michael/Peter/Preeti)
 
 **D to E**
