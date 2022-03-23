@@ -1,28 +1,50 @@
 ## Todo's for Birthday cake
 
-**A.** Event sources will be AWS SQS, GCP Cloud Pub/Sub and Azure Queue Storage. AWS SQS is configured in Triggermesh as using the AWSSQSSource source and Sockeye is the sink (event display). 
+**A to B** 
 
-- [ ] GCP and Azure need to be configured as in Triggermesh, this is done declaritively within a Kubernetes 
+**Cupcake to bday dictionary/standardization, Oracle works today + Microsoft (stretch goal) - Jeff/Josh**
 
-**B.** Event standardization in Knative with Triggermesh. The aquasec event from cupcake has been impleted as a Knative service. 
+- [ ] Consume JSON Oracle Anomalous User event from AWS or OCI Queue (Jeff/Josh)
+- [ ] Consume JSON Azure Anomalous User event from Azure or OCI Queue (Jeff/Josh)
+- [ ] Standardize Oracle event using birthday-cake > send to Sentinel (Jeff/Josh)
+- [ ] Standardize Azure event using birthday-cake > send to Sentinel (Jeff/Josh)
+- [ ] Determine Splunk HEC to use for the demo (Jeff/Peter)
+- [ ] Send Raw Oracle event to Splunk - need a Splunk (do not decorate)(Jeff/Josh)
+- [ ] Send Raw Azure event to Splunk (do not decorate)(Jeff/Josh)
 
-- [ ] Expand the canonical model beyond cupcake to add additional elements, which elements do we need to add?
-- [ ] Triggermesh will be standardizing the Guardduty event using bumblebee transformation to apply the canonical model to the Guardduty json object. (this is using the model from cupcake today) 
+**C to D** 
 
-**C.** `CSNF` standardized events are then ready to be consumed by SIEM platforms that ingest alert data, and SOAR platforms to trigger play books that minimize toil and human intervention by automated and orchestrating responsive workflow tasks. 
+**External decorator sources for CSNF - based on Customer Risk API **
+**Internal decorator sources for CSNF - Azure Threat Intelligence**
 
-- [ ] Integrate the incoming HTTP event from Triggermesh to the Azure Data Collector API
-- [ ] Use Miro to document the requirements for the Azure Logic App wflow to be implemented as a Playbook
-- [ ] Send events into Azure from Triggermesh to test flows through the Azure Playbook
+- [ ] Configure and test internal decorator source - using the Risk API and integrate to playbook (Peter)
+- [ ] Determine external decorator source - do this in Sentnel using Azure Threat Intelligence? (Preeti)
+- [ ] Update playbook > Jira > Splunk integration as required for Azure and GCP events (Peter/Preeti)
+- [ ] Update the Sentinel Playbook to send the Sentinel event to Gluware's HTTPS endpoint (Michael/Peter/Preeti)
 
-**D.** `CSNF` decoration allows teams to better comprehend and prioritize incident response actions through improved contextualization. The reality is that some applications represent more risk to the organization than others and that's where `CSNF` decoration comes in. 
+**D to E**
+
+**Gluware to publish custom API calls specific to CSNF events that would enable us to trigger a workflow vs specific actions like drift/audit/provision.(Michael)** 
+
+- [ ] Configure a Glueware org and basic auth credentials to access the GluAPI from Sentinel (Michael)
+- [ ] Consume the Sentinel event in Glueware and perform an audit action based on the CSNF decoration passed (Michael)
+
+**E to F**
+
+**Actions are remaining on Gluware team. If this is not complete to demo, we can include the available/expected actions in a slide**
 
 - [ ] Deploy two API's for MITRE ATT&CK and Risk decorations. The API will respond to requests from the SOAR playbook to provide MITRE Technique and Risk Level for the Playbook decorator to consume.
 
-**E.** Glueware Config Drift and Audit Application will receive a `CSNF` decorated payload from the SOAR and then audit the network configuration by analyzing any changes from the desired configuration state.
+**A through F** 
 
-- [ ] Requested that Gluware verify that they can receive an incoming webhook event and perform an action based on the payload contained within that event. The action would be audit network configuration and identify unauthorized changes by the adversary.
+**End to end testing of CSNF birthday cake scenario**
 
-**F.** Glueware will trigger a terraform plan and apply the plan based on the prior configuration state in order to restore the network configuration and contain the threat. 
+- [ ] Create mock event containing all the required values that will trigger anticipated Sentinel Playbook workflows required to exercise all demo use cases
+- [ ] Determine presentation flow and supporting graphics, visuals that can be used to emphazise CSNF talking points
+- [ ] Updated info graphic based on 'The Image' for the demonstration 
 
-- [ ] Validate with Gluware the cloud remediation scenario of using Terraform to apply a network reconfiguration and update the Slack channel to confirm that the threat has been contained or eradicated.
+
+
+## Birthday Cake Flow
+
+![Birthday Cake Storyboard - March 8 update](img/csnf-storyboard-bday-cake.png)
