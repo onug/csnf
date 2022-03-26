@@ -1,6 +1,6 @@
 ## Todo's for Birthday cake
 
-**A to B** 
+**A to B**
 
 **Cupcake to bday dictionary/standardization, Oracle works today + Microsoft (stretch goal) - Jeff/Josh**
 
@@ -11,8 +11,9 @@
 - [ ] Determine Splunk HEC to use for the demo (Jeff/Peter)
 - [ ] Send Raw Oracle event to Splunk - need a Splunk (do not decorate)(Jeff/Josh)
 - [ ] Send Raw Azure event to Splunk (do not decorate)(Jeff/Josh)
+- [ ] Bumblebee CSNF tranlation planning (Jeff/Josh/Peter)
 
-**C to D** 
+**C to D**
 
 **External decorator sources for CSNF - based on Customer Risk API; Internal decorator sources for CSNF - Azure Threat Intelligence**
 
@@ -25,13 +26,12 @@
 
 **D to E**
 
-**Gluware to publish custom API calls specific to CSNF events that would enable us to trigger a workflow vs specific actions like drift/audit/provision.(Michael)** 
+**Gluware to publish custom API calls specific to CSNF events that would enable us to trigger a workflow vs specific actions like drift/audit/provision.(Michael)**
 
-- [ ] Consume the Sentinel event in Glueware and audit the network configuration  (Michael)
-- [ ] Contain and preserve evidence for subsequent forensic investigation  (Michael)
-- [ ] Simultaneosly deploy a new network VPC based on last known good network state  (Michael)
+- [ ] Consume the Sentinel event in Glueware and audit the network configuration (Michael)
+- [ ] Contain and preserve evidence for subsequent forensic investigation (Michael)
+- [ ] Simultaneosly deploy a new network VPC based on last known good network state (Michael)
 - [ ] Update Jira and Slack Channel
-
 
 **E to F**
 
@@ -39,15 +39,13 @@
 
 - [ ] Perform an audit action action based on a value being passed within the Microsoft Sentinel Playbook event JSON.
 
-**A through F** 
+**A through F**
 
 **End to end testing of CSNF birthday cake scenario**
 
 - [ ] Create mock event containing all the required values that will trigger anticipated Sentinel Playbook workflows required to exercise all demo use cases
 - [ ] Determine presentation flow and supporting graphics, visuals that can be used to emphazise CSNF talking points
-- [ ] Updated info graphic based on 'The Image' for the demonstration 
-
-
+- [ ] Updated info graphic based on 'The Image' for the demonstration
 
 ## Birthday Cake Flow
 
