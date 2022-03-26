@@ -11,7 +11,7 @@
 - [ ] Determine Splunk HEC to use for the demo (Jeff/Peter)
 - [ ] Send Raw Oracle event to Splunk - need a Splunk (do not decorate)(Jeff/Josh)
 - [ ] Send Raw Azure event to Splunk (do not decorate)(Jeff/Josh)
-- [ ] Bumblebee CSNF tranlation planning (Jeff/Josh/Peter)
+- [ ] Bumblebee / CSNF integration planning (Jeff/Josh/Peter)
 
 **C to D**
 
