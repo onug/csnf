@@ -36,8 +36,8 @@ kind: AzureQueueStorageSource
 metadata:
   name: sample
 spec:
-  accountName: sbtmdemo2
-  queueName: demo
+  accountName: <ACCOUNT_NAME>
+  queueName: <QUEUE_NAME>
 
   accountKey:
     valueFromSecret:
