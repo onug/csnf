@@ -6,6 +6,7 @@
 
 - [ ] Consume JSON Oracle Anomalous User event from Confluent Kafka topic (Jeff/Josh)
 - [ ] Consume JSON Azure Anomalous User event from Azure Queue Storage (Jeff/Josh)
+- [ ] Consume JSON Aquasec events from Google Pub Sub (Jeff)
 - [ ] Standardize Oracle event using birthday-cake > send to Sentinel (Jeff/Josh)
 - [ ] Standardize Azure event using birthday-cake > send to Sentinel (Jeff/Josh)
 - [ ] Determine Splunk HEC to use for the demo (Jeff/Peter)
