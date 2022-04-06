@@ -4,15 +4,17 @@
 
 **Cupcake to bday dictionary/standardization, Oracle works today + Microsoft (stretch goal) - Jeff/Josh**
 
-- [ ] Consume JSON Oracle Anomalous User event from Confluent Kafka topic (Jeff/Josh)
-- [ ] Consume JSON Azure Anomalous User event from Azure Queue Storage (Jeff/Josh)
-- [ ] Consume JSON Aquasec events from Google Pub Sub (Jeff)
-- [ ] Standardize Oracle event using birthday-cake > send to Sentinel (Jeff/Josh)
-- [ ] Standardize Azure event using birthday-cake > send to Sentinel (Jeff/Josh)
-- [ ] Determine Splunk HEC to use for the demo (Jeff/Peter)
-- [ ] Send Raw Oracle event to Splunk - need a Splunk (do not decorate)(Jeff/Josh)
-- [ ] Send Raw Azure event to Splunk (do not decorate)(Jeff/Josh)
-- [ ] Bumblebee / CSNF integration planning (Jeff/Josh/Peter)
+- [ x ] Consume JSON Oracle Anomalous User event from Confluent Kafka topic (Jeff/Josh)
+- [ x ] Consume JSON Azure Anomalous User event from Azure Queue Storage (Jeff/Josh)
+- [ x ] Consume JSON Aquasec events from Google Pub Sub (Jeff)
+- [ x ] Standardize Oracle event using birthday-cake > send to Sentinel (Jeff/Josh)
+- [ x ] Standardize Azure event using birthday-cake > send to Sentinel (Jeff/Josh)
+- [ x ] Standardize Aquasec event using birthday-cake > send to Sentinel (Jeff)
+- [ x ] Determine Splunk HEC to use for the demo (Jeff/Peter)
+- [ x ] Send Raw Oracle event to Splunk - need a Splunk (do not decorate)(Jeff/Josh)
+- [ x ] Send Raw Azure event to Splunk (do not decorate)(Jeff/Josh)
+- [ x ] Send Aquasec events into Splunk (Decorated) (Jeff)
+- [ x ] Bumblebee / CSNF integration planning (Jeff/Josh/Peter)
 
 **C to D**
 
