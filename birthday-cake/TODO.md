@@ -4,22 +4,22 @@
 
 **Cupcake to bday dictionary/standardization, Oracle works today + Microsoft (stretch goal) - Jeff/Josh**
 
-- [ ] Consume JSON Oracle Anomalous User event from Confluent Kafka topic (Jeff/Josh)
-- [ ] Consume JSON Azure Anomalous User event from Azure Queue Storage (Jeff/Josh)
-- [ ] Consume JSON Aquasec events from Google Pub Sub (Jeff)
-- [ ] Standardize Oracle event using birthday-cake > send to Sentinel (Jeff/Josh)
-- [ ] Standardize Azure event using birthday-cake > send to Sentinel (Jeff/Josh)
-- [ ] Determine Splunk HEC to use for the demo (Jeff/Peter)
-- [ ] Send Raw Oracle event to Splunk - need a Splunk (do not decorate)(Jeff/Josh)
-- [ ] Send Raw Azure event to Splunk (do not decorate)(Jeff/Josh)
-- [ ] Bumblebee / CSNF integration planning (Jeff/Josh/Peter)
+- [ ] Consume JSON Oracle Anomalous User event from Confluent Kafka topic - DONE
+- [ ] Consume JSON Azure Anomalous User event from Azure Queue Storage - DONE
+- [ ] Consume JSON Aquasec events from Google Pub Sub - DONE
+- [ ] Standardize Oracle event using birthday-cake > send to Sentinel - DONE
+- [ ] Standardize Azure event using birthday-cake > send to Sentinel - DNOE
+- [ ] Set up Splunk Web and Splunk Event Collector - DONE
+- [ ] Send Raw Oracle event to Splunk - DONE
+- [ ] Send Raw Azure event to Splunk - DONE
+- [ ] Bumblebee CSNF declarative transformation - DONE 
 
 **C to D**
 
 **External decorator sources for CSNF - based on Customer Risk API; Internal decorator sources for CSNF - Azure Threat Intelligence**
 
 - [ ] Configure and test internal decorator source - using the Risk API and integrate to playbook (Peter)
-- [ ] Determine external decorator source - do this in Sentnel using Azure Threat Intelligence and/or MITRE (Preeti/Peter)
+- [ ] Determine external decorator source - do this in Sentinel using Azure Threat Intelligence and/or MITRE (Preeti/Peter)
 - [ ] Update playbook > Jira > Slack integration as required for Azure and OCI events (Peter/Preeti)
 - [ ] Configure a Glueware org and basic auth credentials to access the GluAPI from Sentinel (Michael)
 - [ ] Update the Sentinel Playbook to send the Sentinel CSNF decorated event to Gluware's HTTPS endpoint (Michael/Peter/Preeti)
