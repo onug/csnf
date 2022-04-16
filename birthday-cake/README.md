@@ -29,6 +29,7 @@ CSNF is a newly-developed open standard designed to support the normalization an
 ### TODO's
 
 See the [TODO.md](https://github.com/onug/CSNF/blob/spring22/birthday-cake/TODO.md)
+see the [gluware.md](https://github.com/onug/CSNF/blob/spring22/birthday-cake/glueware.md)
 
 ### Changes
 
