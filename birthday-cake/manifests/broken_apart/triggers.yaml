@@ -1,0 +1,195 @@
+# Debugging Trigger
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: tmdbgr-brkr
+spec:
+  broker: brkr
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: sockeye
+
+---
+
+# The Cloud Guard event trigger for the CSNF standardization transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: cloudguard-transformation
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.kafka.event
+  subscriber:
+    ref:
+      apiVersion: flow.triggermesh.io/v1alpha1
+      kind: Transformation
+      name: cloudguard-transformation
+
+---
+
+
+# The Aquasec event trigger for the CSNF standardization transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: aquasec-transformation
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: com.google.cloud.pubsub.message
+  subscriber:
+    ref:
+      apiVersion: flow.triggermesh.io/v1alpha1
+      kind: Transformation
+      name: aquasec-transformation
+
+---
+
+# The Azure Defender event trigger for the CSNF standardization transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: azure-defender-transformation
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: com.microsoft.azure.servicebus.message
+  subscriber:
+    ref:
+      apiVersion: flow.triggermesh.io/v1alpha1
+      kind: Transformation
+      name: azure-defender-transformation
+
+---
+
+# The Aquasec event trigger for the CSNF Dockerhub event decoration transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: csnf-dockerhub-decorator-aquasec
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.aquasec.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: csnf-dockerhub-decorator
+
+---
+
+# The Azure Sentinel Trigger to propogate the Aquasec CSNF events into the Sentinel Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sentinel-aquasec
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.aquasec.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: hello-sentinel
+
+---
+
+# The Azure Sentinel Trigger to propogate the Cloudguard CSNF events into the Sentinel Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sentinel-cloudguard
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.cloudguard.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: hello-sentinel
+
+---
+
+# The Azure Defender Trigger to propogate the Azure Defender CSNF events into the Sentinel Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sentinel-defender
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.azure.defender.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: hello-sentinel
+
+---
+
+# The Splunk Trigger to propogate the Dockerhub decorated events into the Splunk Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: dockerhub-splunk
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.aquasec.transformation.dockerhub.decorated
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: SplunkTarget
+      name: splunk-distribution
+
+---
+
+# The Splunk Trigger to propogate the CloudGuard decorated events into the Splunk Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: cloudguard-splunk
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.cloudguard.transformation
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: SplunkTarget
+      name: splunk-distribution
+
+---
+
+# The Splunk Trigger to propogate the Azure Defender events into the Splunk Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: defender-splunk
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.azure.defender.transformation
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: SplunkTarget
+      name: splunk-distribution
+
+---
