@@ -1,0 +1,16 @@
+# The CSNF Dockerhub event decoration transformation
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: csnf-dockerhub-decorator
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/triggermesh/csnfdockerhubdecorator:latest
+          env:
+          - name: K_SINK
+            # Put the Broker `brkr` url here.
+            value: http://broker-ingress.knative-eventing.svc.cluster.local/default/brkr
+
+---
