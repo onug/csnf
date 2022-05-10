@@ -1,0 +1,10 @@
+schema_version: 20180708
+name: api-key-auth-function
+version: 0.0.0
+runtime: python
+build_image: fnproject/python:3.8-dev
+run_image: fnproject/python:3.8
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 256
+config:
+  LOG_LEVEL: warning
