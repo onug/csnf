@@ -64,6 +64,31 @@ The SPLUNK_URL is http://splunk:8088
 [2021-11-30T23:53:56.865] [INFO] server - listening on http://localhost:3000
 ```
 
+# Running the demo-service on Google Cloud Run
+
+Cloud Run is a managed compute platform that enables you to run containers that are invocable via requests or events. Cloud Run is serverless: it abstracts away all infrastructure management, so you can focus on building and deploying applications.
+
+1. Follow steps #1 and #2 above in the section Running the demo-service with Docker
+
+2. Ideally, we can use the docker build command to build an image from our Dockerfile, but because we intend to deploy the application to Google Cloud Platform, we need to use Cloud Build which is a dedicated service for building container images on GCP.
+
+   ```bash
+   # retrieve project-id of active project
+   PROJECT="$(gcloud config get-value project)"
+   
+   # build docker/container image
+   gcloud builds submit --tag gcr.io/"${PROJECT}"/demo-service
+   
+   
+   DIR="$(dirname "$0")"
+   . "${DIR}/config"
+   
+   ```
+
+   
+
+
+
 ## Accessing the demo-service
 
 Now that the demo-service is listening for requests on port 3000 its almost time to send a mock event to the demo-service. 

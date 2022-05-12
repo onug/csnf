@@ -1,0 +1,712 @@
+# This bridge can be visualized as below. Note that this illustration does not include
+# the triggers or broker, only a high level of what is happening.
+
+# ┌───────────┐   ┌───────────┐      ┌───────────┐    ┌───────────┐    ┌───────────┐
+# │ Defender  │   │           │      │           │    │           │    │           │
+# │ Events    ├──►│Azure Queue├─────►│Bumblebee  ├───►│Sentinel   ├───►│Splunk     │
+# │           │   │  Storage  │      │           │    │           │    │           │
+# └───────────┘   └───────────┘      └───────────┘    └───────────┘    └───────────┘
+# ┌───────────┐   ┌───────────┐      ┌───────────┐    ┌───────────┐    ┌───────────┐
+# │ CloudGuard│   │  Kafka    │      │           │    │           │    │           │
+# │ Events    ├──►│  Source   ├─────►│Bumblebee  ├───►│Sentinel   ├───►│Splunk     │
+# │           │   │           │      │           │    │           │    │           │
+# └───────────┘   └───────────┘      └───────────┘    └───────────┘    └───────────┘
+# ┌───────────┐   ┌───────────┐      ┌───────────┐    ┌───────────┐    ┌───────────┐    ┌───────────┐
+# │ Aquasec   │   │  Pub/Sub  │      │           │    │           │    │           │    │           │
+# │ Events    ├──►│  Source   ├─────►│Bumblebee  ├───►│Dockerhub  ├───►│Sentinel   ├───►│Splunk     │
+# │           │   │           │      │           │    │Decorator  │    │           │    │           │
+# └───────────┘   └───────────┘      └───────────┘    └───────────┘    └───────────┘    └───────────┘
+
+
+# The Event Broker
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  name: brkr
+
+---
+# Debugging Trigger
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: tmdbgr-brkr
+spec:
+  broker: brkr
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: sockeye
+
+---
+
+# The Azure Queue Storage Source secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name:  azure-queue-storage
+type: Opaque
+stringData:
+  account_key: <ACCOUNT_KEY>
+
+---
+
+# The Azure Queue Storage Source
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AzureQueueStorageSource
+metadata:
+  name: sample
+spec:
+  accountName: csnfdemo
+  queueName: triggermesh
+
+  accountKey:
+    valueFromSecret:
+      name: azure-queue-storage
+      key: account_key
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: broker
+      name: brkr
+
+---
+
+# The AWS Credentials secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name: aws
+type: Opaque
+stringData:
+  access_key_id: access_key_id
+  secret_access_key: secret_access_key
+
+---
+
+# The event source for our Aquasec events (SQS)
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AWSSQSSource
+metadata:
+  name: sample
+spec:
+  arn: <ARN>
+  auth:
+    credentials:
+      accessKeyID:
+        valueFromSecret:
+          name: awscreds
+          key: access_key_id
+      secretAccessKey:
+        valueFromSecret:
+          name: awscreds
+          key: secret_access_key
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: brkr
+
+---
+
+# The event source for our guardduty events (Service Bus Queue)
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: AzureServiceBusQueueSource
+metadata:
+  name: sample
+spec:
+  queueID: <QUEUE_ID>
+  auth:
+    sasToken:
+      connectionString:
+        value: <CONNECTION_STRING>
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: brkr
+
+---
+
+# The Cloud Guard event trigger for the CSNF standardization transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: cloudguard-transformation
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.kafka.event
+  subscriber:
+    ref:
+      apiVersion: flow.triggermesh.io/v1alpha1
+      kind: Transformation
+      name: cloudguard-transformation
+
+---
+
+# The Cloudguard CSNF event standardization transformation
+apiVersion: flow.triggermesh.io/v1alpha1
+kind: Transformation
+metadata:
+  name: cloudguard-transformation
+spec:
+  context:
+  - operation: add
+    paths:
+    - key: type
+      value: io.triggermesh.csnf.cloudguard.transformation
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: brkr
+  data:
+  - operation: store
+    paths:
+    - key: $accountID
+      value: data.additionalDetails.tenantId
+    - key: $eventName
+      value: data.additionalDetails.problemName
+    - key: $eventShortDescription
+      value: data.additionalDetails.problemDescription
+    - key: $eventStartTime
+      value: data.additionalDetails.firstDetected
+    - key: $eventSeverity
+      value: data.additionalDetails.riskLevel
+    - key: $eventStatus
+      value: data.additionalDetails.status
+    - key: $resourceIdentifier
+      value: data.additionalDetails.resourceId
+    - key: $resourceType
+      value: data.additionalDetails.resourceType
+    - key: $resourceName
+      value: data.additionalDetails.resourceName
+    - key: $resourceRegion
+      value: data.additionalDetails.region
+    - key: $resourceZone
+      value: data.compartmentName
+    - key: $providerAccountId
+      value: data.additionalDetails.tenantId
+    - key: $resourceName
+      value: data.additionalDetails.resourceName
+    - key: $resourceName
+      value: data.additionalDetails.resourceName
+
+  - operation: delete
+    paths:
+    - key:
+
+  - operation: add
+    paths:
+    - key: provider
+      value: Oracle Cloud Infrastructure
+    - key: providerType
+      value: CSP
+    - key: providerId
+      value: $resourceName
+    - key: source.sourceName
+      value: Cloud Guard
+    - key: source.sourceId
+      value: none
+    - key: provider.accountId
+      value: $accountID
+    - key: event.name
+      value: $eventName
+    - key: event.shortDescription
+      value: $eventShortDescription
+    - key: event.startTime
+      value: $eventStartTime
+    - key: event.severity
+      value: $eventSeverity
+    - key: event.status
+      value: $eventStatus
+    - key: resource.identifier
+      value: $resourceIdentifier
+    - key: resource.type
+      value: $resourceType
+    - key: resource.name
+      value: $resourceName
+    - key: resource.region
+      value: $resourceRegion
+    - key: resource.zone
+      value: $resourceZone
+
+---
+
+# The Aquasec event trigger for the CSNF standardization transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: aquasec-transformation
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: com.google.cloud.pubsub.message
+  subscriber:
+    ref:
+      apiVersion: flow.triggermesh.io/v1alpha1
+      kind: Transformation
+      name: aquasec-transformation
+
+---
+
+# The Aquasec CSNF event standardization transformation
+apiVersion: flow.triggermesh.io/v1alpha1
+kind: Transformation
+metadata:
+  name: aquasec-transformation
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: brkr
+  context:
+  - operation: add
+    paths:
+    - key: type
+      value: io.triggermesh.csnf.aquasec.transformation
+  data:
+  - operation: parse
+    paths:
+    - key: data
+      value: JSON
+  - operation: store
+    paths:
+    - key: $id
+      value: host
+    - key: $hostid
+      value: data.hostid
+    - key: $reason
+      value: data.reason
+    - key: $time
+      value: data.time
+    - key: $containerid
+      value: containerid
+    - key: $category
+      value: data.category
+    - key: $container
+      value: container
+    - key: $region
+      value: data.vm_location
+    - key: $image
+      value: image
+    - key: $name
+      value: type
+
+  - operation: delete
+    paths:
+    - key:
+
+  - operation: add
+    paths:
+    - key: provider
+      value: Aquasec
+    - key: providerId
+      value: $hostid
+    - key: provider.providerType
+      value: aquasec
+    - key: provider.providerId
+      value: $id
+    - key: provider.accountId
+      value: $id
+    - key: provider.name
+      value: Google PubSub
+    - key: source.sourceName
+      value: Aquasec
+    - key: source.sourceId
+      value: $containerid
+    - key: event.guid
+      value: $hostid
+    - key: event.name
+      value: $name
+    - key: event.shortDescription
+      value: "an aquasec short description goes here"
+    - key: event.startTime
+      value: $time
+    - key: event.severity
+      value: HIGH
+    - key: event.status
+      value: OPEN
+    - key: resource.identifier
+      value: $id
+    - key: resource.type
+      value: Container
+    - key: resource.name
+      value: $hostid
+    - key: resource.region
+      value: us-1-c
+    - key: resource.zone
+      value: us
+    - key: image
+      value: $image
+
+---
+
+# The Azure Defender event trigger for the CSNF standardization transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: azure-defender-transformation
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: com.microsoft.azure.servicebus.message
+  subscriber:
+    ref:
+      apiVersion: flow.triggermesh.io/v1alpha1
+      kind: Transformation
+      name: azure-defender-transformation
+
+---
+
+# The Azure Defender CSNF event standardization transformation
+apiVersion: flow.triggermesh.io/v1alpha1
+kind: Transformation
+metadata:
+  name: azure-defender-transformation
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: brkr
+  context:
+  - operation: add
+    paths:
+    - key: type
+      value: io.triggermesh.csnf.azure.defender.transformation
+  data:
+  - operation: store
+    paths:
+    - key: $providerType
+      value: Azure
+    - key: $providerId
+      value: Data.properties.compromisedEntity
+    - key: $providerType
+      value: Data.type
+    - key: $sourceId
+      value: Data.properties.vendorName
+    - key: $providerAccountId
+      value: Data.properties.subscriptionId
+    - key: $eventGUID
+      value: Data.properties.instanceId
+    - key: $eventName
+      value: Data.properties.alertName
+    - key: $eventShortDescription
+      value: Data.properties.description
+    - key: $eventStartTime
+      value: Data.properties.reportedTimeUtc
+    - key: $eventSeverity
+      value: Data.properties.reportedSeverity
+    - key: $eventStatus
+      value: Data.properties.state
+    - key: $resourceIdentifier
+      value: Data.id
+    - key: $resourceType
+      value: Data.type
+    - key: $resourceName
+      value: Data.properties.compromisedEntity
+
+
+  - operation: delete
+    paths:
+    - key:
+
+  - operation: add
+    paths:
+    - key: provider
+      value:  Azure Defender
+    - key: providerType
+      value: $providerType
+    - key: providerId
+      value: $providerId
+    - key: source.sourceName
+      value: "Azure Defender"
+    - key: source.sourceId
+      value: $sourceId
+    - key: provider.accountId
+      value: $providerAccountId
+    - key: event.guid
+      value: $eventGUID
+    - key: event.name
+      value: $eventName
+    - key: event.shortDescription
+      value: $eventShortDescription
+    - key: event.startTime
+      value: $eventStartTime
+    - key: event.severity
+      value: $eventSeverity
+    - key: event.status
+      value: $eventStatus
+    - key: resource.identifier
+      value: $resourceIdentifier
+    - key: resource.type
+      value: $resourceType
+    - key: resource.name
+      value: $resourceName
+    - key: resource.region
+      value: us-east-1
+    - key: resource.zone
+      value: us
+
+
+---
+
+# The Aquasec event trigger for the CSNF Dockerhub event decoration transformation
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: csnf-dockerhub-decorator-aquasec
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.aquasec.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: csnf-dockerhub-decorator
+
+---
+
+# The CSNF Dockerhub event decoration transformation
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: csnf-dockerhub-decorator
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/triggermesh/csnfdockerhubdecorator:latest
+          env:
+          - name: K_SINK
+            # Put the Broker `brkr` url here.
+            value: http://broker-ingress.knative-eventing.svc.cluster.local/default/brkr
+
+---
+
+# The Azure Sentinel Trigger to propogate the Aquasec CSNF events into the Sentinel Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sentinel-aquasec
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.aquasec.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: hello-sentinel
+
+---
+
+# The Azure Sentinel Trigger to propogate the Cloudguard CSNF events into the Sentinel Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sentinel-cloudguard
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.cloudguard.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: hello-sentinel
+
+---
+
+# The Azure Defender Trigger to propogate the Azure Defender CSNF events into the Sentinel Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sentinel-defender
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.azure.defender.transformation
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: hello-sentinel
+
+---
+
+# The Azure Sentinel Target
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-sentinel
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/triggermesh/azuresentineltarget:latest
+          env:
+          - name: AZURE_SUBSCRIPTION_ID
+            value: <AZURE_SUBSCRIPTION_ID>
+          - name: AZURE_RESOURCE_GROUP
+            value: <AZURE_RESOURCE_GROUP>
+          - name: AZURE_WORKSPACE
+            value: <AZURE_WORKSPACE>
+          - name: AZURE_CLIENT_SECRET
+            value: <AZURE_CLIENT_SECRET>
+          - name: AZURE_CLIENT_ID
+            value: <AZURE_CLIENT_ID>
+          - name: AZURE_TENANT_ID
+            value: <AZURE_TENANT_ID>
+
+---
+
+# The Splunk Target secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name: splunk-hec
+data:
+  token: <SPLUNK_TOKEN>
+type: Opaque
+
+---
+
+# The Splunk Target
+apiVersion: targets.triggermesh.io/v1alpha1
+kind: SplunkTarget
+metadata:
+    name: splunk-distribution
+spec:
+    endpoint: <SPLUNK_ENDPOINT>
+    skipTLSVerify: true
+    token:
+        valueFromSecret:
+            key: token
+            name: splunk-hec
+
+---
+
+# The Splunk Trigger to propogate the Dockerhub decorated events into the Splunk Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: dockerhub-splunk
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.aquasec.transformation.dockerhub.decorated
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: SplunkTarget
+      name: splunk-distribution
+
+---
+
+# The Splunk Trigger to propogate the CloudGuard decorated events into the Splunk Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: cloudguard-splunk
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.cloudguard.transformation
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: SplunkTarget
+      name: splunk-distribution
+
+---
+
+# The Splunk Trigger to propogate the Azure Defender events into the Splunk Target
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: defender-splunk
+spec:
+  broker: brkr
+  filter:
+    attributes:
+      type: io.triggermesh.csnf.azure.defender.transformation
+  subscriber:
+    ref:
+      apiVersion: targets.triggermesh.io/v1alpha1
+      kind: SplunkTarget
+      name: splunk-distribution
+
+---
+
+# The Kafka Source
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: kafkasource
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: gcr.io/triggermesh/kafkasource
+          env:
+          - name: CONFLUENT_BOOTSTRAP_SERVERS
+            value: <BOOTSTRAP_SERVERS>
+          - name: CONFLUENT_SASL_USERNAME
+            value: <CONFLUENT_SASL_USERNAME>
+          - name: CONFLUENT_SASL_PASSWORD
+            value: <CONFLUENT_SASL_PASSWORD>
+          - name: CONFLUENT_TOPIC
+            value: <CONFLUENT_TOPIC>
+          - name: K_SINK
+            value: http://broker-ingress.knative-eventing.svc.cluster.local/default/brkr
+---
+
+# The Google Pub Sub Source
+apiVersion: sources.triggermesh.io/v1alpha1
+kind: GoogleCloudPubSubSource
+metadata:
+  name: gcp-pubsub-csnf
+spec:
+  topic: projects/security-sdbx/topics/triggermesh
+  subscriptionID: triggermesh-sub
+  serviceAccountKey:
+    value: >-
+      {
+      <GOOGLE_SERVICE_ACCOUNT_KEY>
+      }
+
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: brkr
+---
+
+# The Sockeye debugging tool
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sockeye
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/n3wscott/sockeye:v0.7.0@sha256:e603d8494eeacce966e57f8f508e4c4f6bebc71d095e3f5a0a1abaf42c5f0e48
