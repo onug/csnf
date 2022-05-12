@@ -1,0 +1,53 @@
+{
+  "id": "/subscriptions/97e01fd4-3326-41f4-b9e3-3cfd6809e10f/resourceGroups/Sample-RG/providers/Microsoft.Security/locations/centralus/alerts/2517538088322968242_7951468c-3909-4b52-a442-c1f4b92d5162",
+  "name": "2517538088322968242_7951468c-3909-4b52-a442-c1f4b92d5162",
+  "type": "Microsoft.Security/Locations/alerts",
+  "properties": {
+    "vendorName": "Microsoft",
+    "alertDisplayName": "[SAMPLE ALERT] Unusual amount of data extracted from a storage account",
+    "alertName": "SIMULATED_Storage.Blob_DataExfiltration.AmountOfDataAnomaly",
+    "detectedTimeUtc": "2022-04-04T18:26:07.7031757Z",
+    "description": "THIS IS A SAMPLE ALERT: Someone has extracted an unusual amount of data from your Azure Storage account 'Sample-Storage'.",
+    "remediationSteps": "• Limit access to your storage account, following the 'least privilege' principle: https://go.microsoft.com/fwlink/?linkid=2075737.\r\n• Revoke all storage access tokens that may be compromised and ensure that your access tokens are only shared with authorized users.\r\n• Ensure that storage access tokens are stored in a secured location such as Azure Key Vault. Avoid storing or sharing storage access tokens in source code, documentation, and email.",
+    "actionTaken": "Undefined",
+    "reportedSeverity": "High",
+    "compromisedEntity": "Sample-Storage",
+    "associatedResource": "/SUBSCRIPTIONS/97e01fd4-3326-41f4-b9e3-3cfd6809e10f/RESOURCEGROUPS/Sample-RG/providers/Microsoft.Storage/storageAccounts/Sample-Storage",
+    "subscriptionId": "97e01fd4-3326-41f4-b9e3-3cfd6809e10f",
+    "instanceId": "7951468c-3909-4b52-a442-c1f4b92d5162",
+    "extendedProperties": {
+      "resourceType": "Storage",
+      "investigation steps": "{\"displayValue\":\"View related storage activity using Storage Analytics Logging. See how to configure Storage Analytics logging and more information.\",\"kind\":\"Link\",\"value\":\"https:\\/\\/go.microsoft.com\\/fwlink\\/?linkid=2075734\"}",
+      "potential causes": "This alert indicates that an unusually large amount of data has been extracted compared to recent activity on this Storage container.\r\nPotential causes:\r\n• An attacker has extracted a large amount of data from a Storage container (for example: data exfiltration/breach, unauthorized transfer of data).\r\n• A legitimate user or application has extracted an unusual amount of data from a Storage container (for example: maintenance activity).",
+      "client IP address": "00.00.00.00",
+      "client location": "Azure Data Center: East Us",
+      "authentication type": "Anonymous",
+      "operations types": "GetBlob",
+      "service type": "Azure Blobs",
+      "user agent": "dummyAgent",
+      "container": "eicarTestStorageContainer",
+      "extracted data": "140 MB",
+      "test: Slice start time": "03/28/2022 18:26:07",
+      "test: Pipeline name": "1.0.4656.1_storagetd-brs-a3",
+      "extracted blobs": "500",
+      "killChainIntent": "Exfiltration"
+    },
+    "state": "Active",
+    "reportedTimeUtc": "2022-04-04T18:26:47.1036441Z",
+    "workspaceArmId": "/subscriptions/97e01fd4-3326-41f4-b9e3-3cfd6809e10f/resourcegroups/csnf/providers/microsoft.operationalinsights/workspaces/csnfsentinel",
+    "confidenceReasons": [],
+    "canBeInvestigated": true,
+    "isIncident": false,
+    "entities": [
+      {
+        "$id": "centralus_1",
+        "address": "00.00.00.00",
+        "location": {
+          "countryName": "United States",
+          "city": "Washington"
+        },
+        "type": "ip"
+      }
+    ]
+  }
+}

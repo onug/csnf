@@ -1,0 +1,36 @@
+{
+    "eventType" : "com.oraclecloud.cloudguard.problemdetected",
+    "cloudEventsVersion" : "0.1",
+    "eventTypeVersion" : "2.0",
+    "source" : "CloudGuardResponderEngine",
+    "eventTime" : "2021-08-28T16:37:59Z",
+    "contentType" : "application/json",
+    "data" : {
+      "compartmentId" : "ocid1.compartment.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+      "compartmentName" : "Comp-Name",
+      "resourceName" : "Bucket is public",
+      "resourceId" : "ocid1.cloudguardproblem.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+      "additionalDetails" : {
+        "tenantId" : "ocid1.tenancy.oc1..aaaaaaaagfqbe4ujb2dgwxtp37gzinrxt6h6hfshjokfgfi5nzquxmfpzkyq",
+        "status" : "OPEN",
+        "reason" : "New Problem detected by CloudGuard",
+        "problemName" : "BUCKET_IS_PUBLIC",
+        "riskLevel" : "CRITICAL",
+        "problemType" : "CONFIG_CHANGE",
+        "resourceName" : "AutoVinci",
+        "resourceId" : "orasenatdpltsecitom01/AutoVinci",
+        "resourceType" : "Bucket",
+        "targetId" : "ocid1.cloudguardtarget.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+        "labels" : "CIS_OCI_V1.1_OBJECTSTORAGE, ObjectStorage",
+        "firstDetected" : "2021-08-28T16:37:36.945Z",
+        "lastDetected" : "2021-08-28T16:37:36.945Z",
+        "region" : "us-phoenix-1",
+        "problemDescription" : "Object Storage supports anonymous, unauthenticated access to a bucket. A public bucket that has read access enabled for anonymous users allows anyone to obtain object metadata, download bucket objects, and optionally list bucket contents.",
+        "problemRecommendation" : "Ensure that the bucket is sanctioned for public access, and if not, direct the OCI administrator to restrict the bucket policy to allow only specific users access to the resources required to accomplish their job functions."
+      }
+    },
+    "eventID" : "1642b454-eeee-aaaa-aaa-783803f83134",
+    "extensions" : {
+      "compartmentId" : "ocid1.compartment.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e"
+    }
+   }

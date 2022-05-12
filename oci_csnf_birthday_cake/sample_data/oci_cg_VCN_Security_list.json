@@ -1,0 +1,40 @@
+{
+    "eventType" : "com.oraclecloud.cloudguard.problemdetected",
+    "cloudEventsVersion" : "0.1",
+    "eventTypeVersion" : "2.0",
+    "source" : "CloudGuardResponderEngine",
+    "eventTime" : "2022-03-26T22:47:21Z",
+    "contentType" : "application/json",
+    "data" : {
+      "compartmentId" : "ocid1.compartment.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+      "compartmentName" : "NewCIS-network-cmp",
+      "resourceName" : "VCN has no inbound Security List",
+      "resourceId" : "ocid1.cloudguardproblem.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+      "additionalDetails" : {
+        "tenantId" : "ocid1.tenancy.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+        "status" : "OPEN",
+        "reason" : "New Problem detected by CloudGuard",
+        "problemName" : "VCN_NO_INBOUND_SECURITY_LIST",
+        "riskLevel" : "MEDIUM",
+        "problemType" : "CONFIG_CHANGE",
+        "resourceName" : "Default Security List for NewCIS-0-vcn",
+        "resourceId" : "ocid1.securitylist.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+        "resourceType" : "VCN",
+        "targetId" : "ocid1.cloudguardtarget.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+        "labels" : "Network",
+        "firstDetected" : "2022-03-26T22:46:27.915Z",
+        "lastDetected" : "2022-03-26T22:46:27.915Z",
+        "region" : "us-ashburn-1",
+        "problemAdditionalDetails" : {
+          "vcnId" : "ocid1.vcn.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+          "vcnDisplayName" : "NewCIS-0-vcn"
+        },
+        "problemDescription" : "Security lists provide stateful and stateless firewall capability to control network access to your instances. A security list is configured at the subnet level and enforced at the instance level. You can apply multiple security lists to a subnet where a network packet is allowed if it matches any rule in the security lists.",
+        "problemRecommendation" : "Ensure that your OCI VCNs use security lists with ingress or inbound rules to only allow access from known resources."
+      }
+    },
+    "eventID" : "3ae09110-c5f8-4321-b6c8-79ecdfc3ba67",
+    "extensions" : {
+      "compartmentId" : "ocid1.compartment.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e"
+    }
+   }
