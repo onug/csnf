@@ -10,4 +10,7 @@
 ### Description
 Please describe your pull request.
 
+### Apache License 2.0
+🚨Please see the [license](LICENSE.txt).
+
 💔Thank you!
