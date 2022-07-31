@@ -1,6 +1,6 @@
 ### Your checklist for this pull request
-🚨Please review the [guidelines for contributing](../CONTRIBUTING.md) to this repository.
-🚨Please make to to review the [code of conduct](../Covenant_Code_of_Conduct.md) too.
+🚨Please review the [guidelines for contributing](CONTRIBUTING.md) to this repository.
+🚨Please make to to review the [code of conduct](Covenant_Code_of_Conduct.md) too.
 
 
 - [ ] Make sure you are making a pull request against the **provider branch** (left side).
