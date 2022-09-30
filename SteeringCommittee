@@ -24,4 +24,5 @@ Steering Committee membership (September 2022) is as follows:
 | Johnnie Konstantas | Group Vice President | Oracle |
 | Pradeep Kathail | Chief Software Architect | Cisco | 
 | Vijay Ganti| Head of Product Management, Threat Detection & Analytics | Google | 
+| Alexandra Shulman-Peleg | Cybersecurity Leader, Managing Director | Ernst & Young |
 | Nick Lippis| Co-Founder, Co-Chair | ONUG | 
