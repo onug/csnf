@@ -40,7 +40,7 @@ CSNF improvements are released following [Semantic Versioning](https://semver.or
 
 Fields related to the cloud (Iaas, SaaS or PasS) infrastructure the events are coming from.
 
-| Element details    | CSNF Element Type | CSNF Namespace | Required? | CSNF Description                                                                                                   |
+| Element details**    | CSNF Element Type | CSNF Namespace | Required? | CSNF Description                                                                                                   |
 | ------------------ | ----------------- | -------------- | --------- | ------------------------------------------------------------------------------------------------------------------ |
 | provider.guid      | guid              | .provider      | Yes       | Identifier                                                                                                         |
 | provider.type      | type              | .provider      | No        | IaaS, SaaS or PaaS                                                                                                 |
@@ -153,7 +153,7 @@ This repository contains a proof-of-concept implementation of CSNF. The code is 
 
 The CSNF open source initiative benefits from the guidance and participation of over a dozen enterprises and their technology leadership. For current Steering Committee, see [SteeringCommittee.md](./SteeringCommittee.md)
 
-## <a name="building-dictionaries"></a>Building dictionaries
+## <a name="building-dictionaries"></a>Building Dictionaries
 
 CSNF framework uses JSON-based dictionaries provided by event producers to interpret proprietary event models into the Canonical Data Model. You can see sample dictionaries under `demo-service/dictionaries`. Dictionaries allow to map Canonical Data Model entries into set of instructions to be performed on the source event. Each instruction is comprised of `processor`, `command` and `param` values. 
 
