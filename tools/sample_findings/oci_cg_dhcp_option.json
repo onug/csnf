@@ -1,0 +1,39 @@
+{
+    "eventType" : "com.oraclecloud.cloudguard.problemdetected",
+    "cloudEventsVersion" : "0.1",
+    "eventTypeVersion" : "2.0",
+    "source" : "CloudGuardResponderEngine",
+    "eventTime" : "2022-04-18T17:56:44Z",
+    "contentType" : "application/json",
+    "data" : {
+      "compartmentId" : "ocid1.compartment.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+      "compartmentName" : "ONUG",
+      "resourceName" : "VCN DHCP Option changed",
+      "resourceId" : "ocid1.cloudguardproblem.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+      "additionalDetails" : {
+        "tenantId" : "ocid1.tenancy.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+        "status" : "OPEN",
+        "reason" : "New Problem detected by CloudGuard",
+        "problemName" : "VCN_DHCP_OPTION_CHANGED",
+        "riskLevel" : "MEDIUM",
+        "problemType" : "ACTIVITY",
+        "resourceName" : "alien@mars.planet",
+        "resourceId" : "alien@mars.planet",
+        "resourceType" : "User",
+        "targetId" : "ocid1.cloudguardtarget.oc1.iad.1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e",
+        "labels" : "CIS_OCI_V1.1_MONITORING, Network, CIS_OCI_V1.0_MONITORING",
+        "firstDetected" : "2022-04-18T17:55:54.032Z",
+        "lastDetected" : "2022-04-18T17:55:54.032Z",
+        "region" : "us-ashburn-1",
+        "impactedResourceName" : "Default DHCP Options for VCN4",
+        "impactedResourceId" : "ocid1.dhcpoptions.oc1.iad.aaaaaaa",
+        "impactedResourceType" : "DHCP",
+        "problemDescription" : "DHCP options control certain types of configuration on the instances in a VCN. These include the specification of search domains and DNS resolvers, which can direct communications within VCNs across to Internet resources.",
+        "problemRecommendation" : "Ensure that the change to DHCP and DNS information is permitted for this VCN and related resources."
+      }
+    },
+    "eventID" : "6367cd17-38e6-412d-936e",
+    "extensions" : {
+      "compartmentId" : "ocid1.compartment.oc1..1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e1q2w3e"
+    }
+   }

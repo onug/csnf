@@ -1,0 +1,83 @@
+{
+  "id": "/subscriptions/97e01fd4-3326-41f4-b9e3-3cfd6809e10f/resourceGroups/Sample-RG/providers/Microsoft.Security/locations/centralus/alerts/2517538088722812591_ee939333-c75e-461d-83c2-712ba9abfadb",
+  "name": "2517538088722812591_ee939333-c75e-461d-83c2-712ba9abfadb",
+  "type": "Microsoft.Security/Locations/alerts",
+  "properties": {
+    "vendorName": "Microsoft",
+    "alertDisplayName": "[SAMPLE ALERT] Suspected successful brute force attack",
+    "alertName": "SIMULATED_SQL.VM_BruteForce",
+    "detectedTimeUtc": "2022-04-04T18:25:27.7187408Z",
+    "description": "THIS IS A SAMPLE ALERT: A successful login occurred after an apparent brute force attack on your resource",
+    "remediationSteps": "Go to the firewall settings in order to lock down the firewall as tightly as possible.",
+    "actionTaken": "Undefined",
+    "reportedSeverity": "Medium",
+    "compromisedEntity": "Sample-VM",
+    "associatedResource": "/SUBSCRIPTIONS/97e01fd4-3326-41f4-b9e3-3cfd6809e10f/RESOURCEGROUPS/Sample-RG/providers/Microsoft.Compute/virtualMachines/Sample-VM",
+    "subscriptionId": "97e01fd4-3326-41f4-b9e3-3cfd6809e10f",
+    "instanceId": "ee939333-c75e-461d-83c2-712ba9abfadb",
+    "extendedProperties": {
+      "resourceType": "SQL Server 2019",
+      "potential causes": "Brute force attack; penetration testing.",
+      "client principal name": "Sample-account",
+      "alert Id": "00000000-0000-0000-0000-000000000000",
+      "client IP address": "00.00.00.00",
+      "client IP location": "san antonio, united states",
+      "client application": "Sample-app",
+      "successful logins": "1",
+      "oms workspace ID": "00000000-0000-0000-0000-000000000000",
+      "failed logins": "0",
+      "oms agent ID": "00000000-0000-0000-0000-000000000000",
+      "enrichment_tas_threat__reports": "{\"Kind\":\"MultiLink\",\"DisplayValueToUrlDictionary\":{\"Report: Brute Force\":\"https://interflowwebportalext.trafficmanager.net/reports/DisplayReport?callerIdentity=ddd5443d-e6f4-441c-b52b-5278d2f21dfa&reportCreateDateTime=2022-04-04T17%3a59%3a38&reportName=MSTI-TS-Brute-Force.pdf&tenantId=52aab34c-2534-4485-bf2f-b4e7e5c42e44&urlCreateDateTime=2022-04-04T17%3a59%3a38&token=ubgWSjyr0wFBBiPZyz2jJ5lmrPmwXy2jLxDNy7RVz7k=\"}}",
+      "killChainIntent": "PreAttack"
+    },
+    "state": "Active",
+    "reportedTimeUtc": "2022-04-04T18:26:47.490371Z",
+    "confidenceReasons": [],
+    "canBeInvestigated": true,
+    "isIncident": false,
+    "entities": [
+      {
+        "$id": "centralus_1",
+        "hostName": "Sample-VM",
+        "azureID": "/SUBSCRIPTIONS/97e01fd4-3326-41f4-b9e3-3cfd6809e10f/RESOURCEGROUPS/Sample-RG/providers/Microsoft.Compute/virtualMachines/Sample-VM",
+        "omsAgentID": "00000000-0000-0000-0000-000000000000",
+        "type": "host"
+      },
+      {
+        "$id": "centralus_2",
+        "address": "00.00.00.00",
+        "location": {
+          "countryCode": "sample",
+          "countryName": "united states",
+          "state": "texas",
+          "city": "san antonio",
+          "longitude": 0,
+          "latitude": 0,
+          "asn": 0,
+          "carrier": "sample",
+          "organization": "sample-organization",
+          "organizationType": "sample-organization",
+          "cloudProvider": "Azure",
+          "systemService": "sample"
+        },
+        "type": "ip"
+      },
+      {
+        "$id": "centralus_3",
+        "sourceAddress": {
+          "$ref": "centralus_2"
+        },
+        "protocol": "Tcp",
+        "type": "network-connection"
+      },
+      {
+        "$id": "centralus_4",
+        "name": "Sample-SA",
+        "host": {
+          "$ref": "centralus_1"
+        },
+        "type": "account"
+      }
+    ]
+  }
+}
