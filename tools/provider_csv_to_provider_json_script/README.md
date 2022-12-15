@@ -1,7 +1,7 @@
 
 # Provider CSV to JSON Mapping Conversion Script
 ## <a name="overview"></a> Overview
-Once the providers alerts are mapped to the CDM converting those alert mapping to a more programmatically format is helpful. To accelerate this process we created a Python script [provider-csv-to-provider-json.py](./provider-csv-to-provider-json.py) that takes a [provider CSV](#../provider_csv/provider.csv) and converts it into a JSON. Here is the sample mapping in JSON. The JSON file representing the above mapping can be found here: [sample_provider_output.json](./sample_provider_output.json).
+Once the providers alerts are mapped to the CDM converting those alert mapping to a more programmatically format is helpful. To accelerate this process we created a Python script [provider-csv-to-provider-json.py](./provider-csv-to-provider-json.py) that takes a [provider CSV](../provider_csv/provider.csv) and converts it into a JSON. Here is the sample mapping in JSON. The JSON file representing the above mapping can be found here: [sample_provider_output.json](./sample_provider_output.json).
 
 
 ## <a name="mapping_script_usage"></a> Mapping Script Usage
