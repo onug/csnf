@@ -40,21 +40,21 @@ Place one or more unmapped sample findings in the [sample_findings/](./sample_fi
 Run the [provider_csv_to_provider_json_script](./provider_csv_to_provider_json_script/README.md) to ensure it generates an output JSON file. 
 1. **Contribute to the CSNF GitHub repository.** Create a pull request (PR) using following the process defined in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-### <a name="consumer"></a> Consumers – Get started
+### <a name="consumer"></a> Consumers – Get started (Coming soon...)
 There are a few different consumer scenarios and get started guidelines for each is shared below.
 
 #### <a name="consumerscenario1"></a> Consumer scenario #1: Consuming product integrations (SIEMs and SOARs)
-Consuming SIEMs and SOAR products can integrate with CSNF CDM to provide built-in support for CSNF CDM in SIEMs and SOARs. Detailed steps and architecture diagram here.
+Consuming SIEMs and SOAR products can integrate with CSNF CDM to provide built-in support for CSNF CDM in SIEMs and SOARs. Detailed steps and architecture diagram coming soon... 
 
 #### <a name="consumerscenario2"></a>  Consumer scenario #2: Consuming enterprises 
 Enterprises can directly leverage CSNF integrations delivered by SIEMs and SOARs or connect home grown tools and services to leverage CSNF standardization and enrichment benefits. Get started guidelines for each is shared below.
 
 ##### <a name="consumerscenario2ootb"></a> Leverage out-of-the-box CSNF integrations. 
-Check out the currently integrated SIEMs and SOARs and follow the respective guidance to integrate with CSNF. 
+Check out the currently integrated SIEMs, SOARs and products and follow the respective guidance to integrate with CSNF - coming soon
 
 ##### <a name="consumerscenario2custom"></a> Connect my tools and services with CSNF.
 Follow the guidance below to connect enterprise tools and services with CSNF and customize as needed. 
-1.	Detailed steps and links to tools and validations as needed.
+1.	Detailed steps and links to tools and validations as needed Coming soon...
 
 ## <a name="steering-committee"></a>Steering Committee
 
