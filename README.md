@@ -29,9 +29,16 @@ There are three key personas that interact with CSNF.  These are defined as foll
 
 ### <a name="provider"></a> Producers – Get started
 Producers can get started to connect their information with CSNF with the following steps: 
-1. **Map security findings and alerts to CSNF CDM.** Detailed how to steps
-1. **Validate outcomes.** Detailed how to steps
-1. **Contribute to the CSNF GitHub repository.** Detailed how to steps with link to contribution guidance
+1. **Map security findings and alerts to CSNF CDM**:
+  [Provider CSV Readme](./tools/provider_csv/README.md) is a for mapping Cloud Service Providers (CSPs) or security provider alerts to the ONUG CSF format. Map your security findings to [Provider CSV](./tools/provider_csv/provider.csv).
+  Map your common properties across your findings using the  `__default__`  in `Alert Id` column. For additional information see the [Provider CSV Readme](./tools/provider_csv/README.md).
+
+1. **Add Sample Finding(s)**: 
+Place one or more unmapped sample findings in the [sample_findings/](./sample_findings) directory.  Name convention - `<producer_name>_<product_name>_<finding_number>.json` ex. `microsoft_defender_1.json`
+
+1. **Validate outcomes.**
+Run the [provider_csv_to_provider_json_script](./provider_csv_to_provider_json_script/README.md) to ensure it generates an output JSON file. 
+1. **Contribute to the CSNF GitHub repository.** Create a pull request (PR) using following the process defined in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ### <a name="consumer"></a> Consumers – Get started
 There are a few different consumer scenarios and get started guidelines for each is shared below.
@@ -55,7 +62,7 @@ The CSNF open source initiative benefits from the guidance and participation of 
 
 ## <a name="contributing"></a>Contributing
 
-Please read the [CONTRIBUTING.md](./demos/demo-service/CONTRIBUTING.md) page to learn more about how you can contribute to the CSNF `demo-service`.
+Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) page to learn more about how you can contribute to the CSNF `demo-service`.
 PLEASE ALSO READ THE CSNF "CONTRIBUTOR CODE OF CONDUCT" (./Covenant_Code_of_Conduct.md)
 
 ## <a name="license"></a>License
