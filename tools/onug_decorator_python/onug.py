@@ -36,7 +36,6 @@ class Onug:
         self.__set_provider_source_raw_finding()
         self.__set_finding_provider_data()
         self.__set_onug_mapping_for_source()
-        # self.__set_data_source_mapping_from_provider()
         self.__map_raw_finding_to_onug()
         return
 
@@ -55,9 +54,7 @@ class Onug:
         raise SystemExit("__set_provider_source_raw_finding: FAILED TO GET SOURCE AND PROVIDER")
 
     def __set_finding_provider_data(self):
-        # function needs support for multiple providers
-        # self.__finding["provider"]["provider"] = self.__onug_mapping[self.__provider]["provider"]
-        # logging.debug("__set_provider_from_finding: Provider is set to: " + self.__finding["provider"]["provider"]) 
+        logging.debug("__set_provider_from_finding: Starting")
         self.__finding["provider"]["providerId"] = self.__onug_mapping[self.__provider]["providerId"]
         logging.debug("__set_provider_from_finding: ProviderId is set to: " + self.__finding["provider"]["providerId"]) 
         self.__finding["provider"]["providerType"] = self.__onug_mapping[self.__provider]["providerType"]
@@ -109,12 +106,6 @@ class Onug:
 
     def __map_raw_finding_to_onug(self):
         logging.debug("__map_raw_finding_to_onug: source mapping is: " )
-        # print("+"* 30)
-        # print(self.__raw_finding)
-        # print("00"* 30)
-
-        # print(self.__source_mapping)
-        # print("+"* 30)
         for alert_key, alert_value in self.__source_mapping['alerts'].items():
             for map_key, map_value in alert_value['alertMapping'].items():
                 for key, value in map_value.items():
@@ -124,28 +115,6 @@ class Onug:
                         mapped_item = self.__mapped_item_from_path(path, self.__raw_finding)
                         # logging.debug(f'map_to_onug: {element} is mapped to {mapped_item} via path: {self.__source_mapping[element]["path"]}')
                         self.__set_item_from_path(map_key, mapped_item)                
-                # for alert_mapping in self.__source_mapping['alerts'][alert]['alertMapping']:
-                #     logging.debug("__map_raw_finding_to_onug: Mapped Value: " + str(alert_mapping))
-                #     if not(self.__source_mapping[element]["mappedValue"]):
-                #         path = self.__source_mapping[element]["path"]
-                #         logging.debug("map_to_onug: path is: " + str(path))
-
-        # for element in self.__source_mapping:
-        #     logging.debug("__map_raw_finding_to_onug: Mapped Value: " + str(type(self.__source_mapping[element]["mappedValue"])))
-        #     if not(self.__source_mapping[element]["mappedValue"]):
-        #         path = self.__source_mapping[element]["path"]
-        #         logging.debug("map_to_onug: path is: " + str(path))
-        #         #logging.debug("map_to_onug: finding is: " + str(finding))
-        #         mapped_item = self.__mapped_item_from_path(path, self.__raw_finding)
-
-        #         logging.debug(f'map_to_onug: {element} is mapped to {mapped_item} via path: {self.__source_mapping[element]["path"]}')
-        #         self.__set_item_from_path(element, mapped_item)
-        #     else:
-        #         mapped_item = self.__source_mapping[element]["value"]
-        #         logging.debug(f'map_to_onug: Static map_to_onug: {element} is mapped to {mapped_item} static: {self.__source_mapping[element]["value"]}')
-        #         self.__set_item_from_path(element, mapped_item)
-
-
 
     def get_provider_data(self):
         return self.__finding["provider"]
