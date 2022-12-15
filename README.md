@@ -1,4 +1,17 @@
-# Cloud Security Notifications Framework
+
+# Cloud Security Notifications Framework 
+## Table of Contents
+1. [Overview](#overview)
+1. [Canonical Data Model](./Canonical_Data_Model.md)
+1. [Get Started](#getting-started)
+    - [Producers – Get started](#provider)
+    - [Consumers – Get started](#consumer)
+1. [Steering Committee](#steering-committee)
+1. [Contributing](#contributing)
+1. [License](#license)
+
+
+## <a name="overview"></a>Overview
 
 CSNF is an Open Source initiative tackling the difficulty of providing security assurance for Cloud at scale caused by the large volume of events and security state messaging. The problem is compounded when using multiple Cloud Service Providers (CSP’s) due to the the lack of standardized events and alerts amongst CSP’s.
 
@@ -8,118 +21,52 @@ CSNF), being developed by the ONUG Collaborative’s Automated Cloud Governance 
 standardization process without sacrificing innovation. Join the ONUG discussion and learn how CSNF will support your
 efforts in delivering more efficient Hybrid Multi-Cloud solutions.
 
-## Canonical Data Model
+## <a name="getting-started"></a>Get Started
+There are three key personas that interact with CSNF.  These are defined as follows and illustrated in the following diagram. Get started information for each of these personas is covered after the diagram.    
+1. **Producers.** Include cloud service providers (CSPs) and cloud and on-prem data providers that generate logs as well as security findings or events or alerts. Some examples include Azure, AWS, Google, Oracle, IBM as CSPs and Palo Alto, Cisco, Qualys, etc. 
+1. **Consumers.** Include consuming products like SIEM and SOAR and enterprises that use these products or directly integrate with the producers using home grown tools or services. Some examples include Splunk, Microsoft Sentinel, Google Chronicle, etc. as consuming products and Cigna, Intuit, FedEx, etc. as enterprise consumers. 
+1. **ONUG Open Community.** Brings together producers, consumers and cybersecurity experts like MITRE, NIST, etc. and establishes governance and standardization principles. ONUG enables productization of standards and enable a connected open community of standards. Key goal is to enable easy way for enterprises to work in the multi-cloud world with standardized and enriched information. This CSNF GitHub enables connecting producers and consumers to connect with CSNF.
 
-CSNF defines a Canonical Data Model as well as interpretation and decoration patterns that can be used to reduce toil, drive consistency and allow enterprises to apply a context-aware approach to security by corellating and acting upon security events across multiple providers at scale. 
+![ONUG Vision](/img/CSNFVision.png)
 
-### Canonical Data Model Entities (Version 0.0.1)
+### <a name="provider"></a> Producers – Get started
+Producers can get started to connect their information with CSNF with the following steps: 
+1. **Map security findings and alerts to CSNF CDM**:
+  [Provider CSV Readme](./tools/provider_csv/README.md) is a for mapping Cloud Service Providers (CSPs) or security provider alerts to the ONUG CSF format. Map your security findings to [Provider CSV](./tools/provider_csv/provider.csv).
+  Map your common properties across your findings using the  `__default__`  in `Alert Id` column. For additional information see the [Provider CSV Readme](./tools/provider_csv/README.md).
 
-#### Event
+1. **Add Sample Finding(s)**: 
+Place one or more unmapped sample findings in the [sample_findings/](./sample_findings) directory.  Name convention - `<producer_name>_<product_name>_<finding_number>.json` ex. `microsoft_defender_1.json`
 
-| Entity | Property | Full name|
-|---|---|---|
-| event | name | event.name | 
-| event | guid | event.guid|
-| event | url | event.url|
-| event | shortDescription | event.shortDescription |
-| event | longDescription | event.longDescription |
-| event | severity | event.severity| 
-| event | time| event.time|
-| event | name | event.name |
+1. **Validate outcomes.**
+Run the [provider_csv_to_provider_json_script](./provider_csv_to_provider_json_script/README.md) to ensure it generates an output JSON file. 
+1. **Contribute to the CSNF GitHub repository.** Create a pull request (PR) using following the process defined in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-#### Reporter
+### <a name="consumer"></a> Consumers – Get started (Coming soon...)
+There are a few different consumer scenarios and get started guidelines for each is shared below.
 
-| Entity | Property | Full name  |
-|---|---|---|
-| reporter | name | reporter.name |
+#### <a name="consumerscenario1"></a> Consumer scenario #1: Consuming product integrations (SIEMs and SOARs)
+Consuming SIEMs and SOAR products can integrate with CSNF CDM to provide built-in support for CSNF CDM in SIEMs and SOARs. Detailed steps and architecture diagram coming soon... 
 
-#### Producer
+#### <a name="consumerscenario2"></a>  Consumer scenario #2: Consuming enterprises 
+Enterprises can directly leverage CSNF integrations delivered by SIEMs and SOARs or connect home grown tools and services to leverage CSNF standardization and enrichment benefits. Get started guidelines for each is shared below.
 
-| Entity | Property | Full name  |
-|---|---|---|
-| producer | name | producer.name |
+##### <a name="consumerscenario2ootb"></a> Leverage out-of-the-box CSNF integrations. 
+Check out the currently integrated SIEMs, SOARs and products and follow the respective guidance to integrate with CSNF - coming soon
 
-#### Resource
+##### <a name="consumerscenario2custom"></a> Connect my tools and services with CSNF.
+Follow the guidance below to connect enterprise tools and services with CSNF and customize as needed. 
+1.	Detailed steps and links to tools and validations as needed Coming soon...
 
-| Entity | Property | Full name|
-|---|---|---|
-| resource | guid | event.guid|
-| resource | type | event.type |
-| resource | name | event.name |
-| resource | accountId | event.accountId | 
-| resource | platform | event.platform|
-| resource | service | event.service| 
-| resource | region| event.region|
-| resource | package | event.package |
+## <a name="steering-committee"></a>Steering Committee
 
-## Getting Started
+The CSNF open source initiative benefits from the guidance and participation of over a dozen enterprises and their technology leadership. For current Steering Committee, see [SteeringCommittee.md](./SteeringCommittee.md)
 
-This repository contains a proof-of-concept implementation of CSNF. The code is split into two directories:
+## <a name="contributing"></a>Contributing
 
-* `csnf` directory contains the core framework of interpreting events
-* `demo-service` directory contains a set of sample dictionaries, as well as a web application receiving events from various event producers and dispatching them to event receivers like Azure Sentinel, IBM Cloud Security Center, IBM QRadar, Splunk and more.  The `demo-service` can be run in Docker for local testing of CSNF. There is a [README.md](./demo-service/README.md) that explains how to run the `demo-service` using Docker.
-
-## Building dictionaries
-
-CSNF framework uses JSON-based dictionaries provided by event producers to interpret proprietary event models into the Canonical Data Model. You can see sample dictionaries under `demo-service/dictionaries`. Dictionaries allow to map Canonical Data Model entries into set of instructions to be performed on the source event. Each instruction is comprised of `processor`, `command` and `param` values. 
-
-See sample instruction set below:
-
-```
-  "resource.accountId": [
-    {
-      "processor": "jsonpath",
-      "command": "$.ResourceIdentifiers[0].AzureResourceTenantId"
-    }
-  ],
-```
-
-The above instruction will use jsonpath processor to extract the value to be interpreted as `resourcec.accountId`. So in case of below source event
-
-```
-{
-  ...
-  "ResourceIdentifiers": [{
-      "AzureResourceTenantId": "abcd1234"
-      ...
-    },
-    {...}, {...}
-  ],
-  ...
-}
-```
-
-The extracted value will be `abcd1234`.
-
-When instruction set contains more than one instructions, the execution is chained, meaning that first instruction will be performed on the original event, and each subsequent instruction will be performed on the output of the previous one. 
-
-Below are the supported instructions (processors, commands, params) used in the CNSF proof-of-concept. 
-
-| Processor | Command | Param | Description | 
-|---|---|---|---|
-|array|element-at-index|number| Extracts element at the index specified as param from an array |
-|array|join|string| Joins array elements using param value|
-|json| parse | n/a | Parses string as JSON object|
-|json| stringify |n/a| Converts JSON object to string |
-|jsonpath|JSONPath expression|n/a|Executes JSONPath expression on a JSON object|
-|string|to-lower-case|n/a|Converts string to lower case|
-|string|to-upper-case|n/a|Converts string to upper case|
-|string|split|string|Splits string to array of elements using param as a separator|
-|string|prepend|string|Prepends string with param|
-|string|append|string|Appends param at the end of the string|
-|string|regex|regex expression|Executes regex expression on the string|
-|string|concat|array of instructions|Executes instructions defined as param and returns concatenated results|
-
-## Contributing
-
-Please read the [CONTRIBUTING.md](./demos/demo-service/CONTRIBUTING.md) page to learn more about how you can contribute to the CSNF `demo-service`.
+Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) page to learn more about how you can contribute to the CSNF `demo-service`.
 PLEASE ALSO READ THE CSNF "CONTRIBUTOR CODE OF CONDUCT" (./Covenant_Code_of_Conduct.md)
 
-## License
+## <a name="license"></a>License
 
 Distributed under the Apache-2.0 License, see [LICENSE.txt](./LICENSE.txt)
-
-
-
-
-

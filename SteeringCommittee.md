@@ -1,12 +1,4 @@
----
-title: "CSNF Steering Committee Membership"
-linkTitle: "Steering Committee"
-weight: 20
-description: >-
-     Details the current CSNF Steering Committee Membership
----
-
-## Heading
+# Steering Committee
 
 The CSNF open source initiative benefits from the guidance and participation of over a dozen enterprises and their technology leadership. Current
 Steering Committee membership (September 2022) is as follows:
