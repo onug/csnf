@@ -1,0 +1,57 @@
+[app/ui]
+version = 9.0.2
+modtime = 1672327387.147402000
+
+[app/launcher]
+version = 9.0.2
+modtime = 1672327387.148872000
+
+[passwords/credential%3Acsnf_realm%3Aadmin%3A]
+owner = admin
+version = 9.0.2
+modtime = 1672327338.050924000
+
+[app/install]
+version = 9.0.2
+modtime = 1672329200.734259000
+
+[app/package/check_for_updates]
+version = 9.0.2
+modtime = 1672327387.153964000
+
+[]
+access = read : [ * ], write : [ admin, power ]
+export = none
+version = 9.0.2
+modtime = 1672327917.541765000
+
+[views/csnf_alert]
+version = 9.0.2
+modtime = 1672364419.395078000
+
+[panels/guardduty_events_current_week]
+owner = admin
+version = 9.0.2
+modtime = 1672351017.800917000
+
+[views/csnf_home]
+version = 9.0.2
+modtime = 1672409710.493693000
+
+[views/csnf_service]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 9.0.2
+modtime = 1672406079.047947000
+
+[savedsearches/CSNF%20Sorted%20Events]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 9.0.2
+modtime = 1672407756.009817000
+
+[views/csnf_events]
+version = 9.0.2
+modtime = 1672408624.417371000

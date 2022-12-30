@@ -1,0 +1,203 @@
+[
+    {
+      "AccountId": "026923064426",
+      "Arn": "arn:aws:guardduty:us-east-1:026923064426:detector/f6c2881d4202ff653c1f33df4bc1791e/finding/ee0481b4fc4f42648a36f6bc3687aacc",
+      "CreatedAt": "2022-12-15T12:09:08.469Z",
+      "Description": "API GeneratedFindingAPIName, commonly used in resource discovery, was used to access bucket GeneratedFindingS3Bucket from Tor exit node IP address 198.51.100.0. Unauthorized actors perform such activity to gather information about your Amazon S3 buckets and objects in order to further tailor the attack.",
+      "Id": "ee0481b4fc4f42648a36f6bc3687aacc",
+      "Partition": "aws",
+      "Region": "us-east-1",
+      "Resource": {
+        "AccessKeyDetails": {
+          "AccessKeyId": "GeneratedFindingAccessKeyId",
+          "PrincipalId": "GeneratedFindingPrincipalId",
+          "UserName": "GeneratedFindingUserName",
+          "UserType": "IAMUser"
+        },
+        "S3BucketDetails": [
+          {
+            "Arn": "arn:aws:s3:::bucketName",
+            "Name": "bucketName",
+            "Type": "Destination",
+            "CreatedAt": "2017-12-18T15:58:11.551Z",
+            "Owner": {
+              "Id": "CanonicalId of Owner"
+            },
+            "Tags": [
+              {
+                "Key": "foo",
+                "Value": "bar"
+              }
+            ],
+            "DefaultServerSideEncryption": {
+              "EncryptionType": "SSEAlgorithm",
+              "KmsMasterKeyArn": "arn:aws:kms:region:123456789012:key/key-id"
+            },
+            "PublicAccess": {
+              "PermissionConfiguration": {
+                "BucketLevelPermissions": {
+                  "AccessControlList": {
+                    "AllowsPublicReadAccess": false,
+                    "AllowsPublicWriteAccess": false
+                  },
+                  "BucketPolicy": {
+                    "AllowsPublicReadAccess": false,
+                    "AllowsPublicWriteAccess": false
+                  },
+                  "BlockPublicAccess": {
+                    "IgnorePublicAcls": false,
+                    "RestrictPublicBuckets": false,
+                    "BlockPublicAcls": false,
+                    "BlockPublicPolicy": false
+                  }
+                },
+                "AccountLevelPermissions": {
+                  "BlockPublicAccess": {
+                    "IgnorePublicAcls": false,
+                    "RestrictPublicBuckets": false,
+                    "BlockPublicAcls": false,
+                    "BlockPublicPolicy": false
+                  }
+                }
+              },
+              "EffectivePermission": "NOT_PUBLIC"
+            }
+          }
+        ],
+        "InstanceDetails": {
+          "AvailabilityZone": "GeneratedFindingInstaceAvailabilityZone",
+          "IamInstanceProfile": {
+            "Arn": "arn:aws:iam::026923064426:example/instance/profile",
+            "Id": "GeneratedFindingInstanceProfileId"
+          },
+          "ImageDescription": "GeneratedFindingInstaceImageDescription",
+          "ImageId": "ami-99999999",
+          "InstanceId": "i-99999999",
+          "InstanceState": "running",
+          "InstanceType": "m3.xlarge",
+          "OutpostArn": "arn:aws:outposts:us-west-2:123456789000:outpost/op-0fbc006e9abbc73c3",
+          "LaunchTime": "2016-08-02T02:05:06.000Z",
+          "NetworkInterfaces": [
+            {
+              "Ipv6Addresses": [],
+              "NetworkInterfaceId": "eni-bfcffe88",
+              "PrivateDnsName": "GeneratedFindingPrivateDnsName",
+              "PrivateIpAddress": "10.0.0.1",
+              "PrivateIpAddresses": [
+                {
+                  "PrivateDnsName": "GeneratedFindingPrivateName",
+                  "PrivateIpAddress": "10.0.0.1"
+                }
+              ],
+              "PublicDnsName": "GeneratedFindingPublicDNSName",
+              "PublicIp": "198.51.100.0",
+              "SecurityGroups": [
+                {
+                  "GroupId": "GeneratedFindingSecurityId",
+                  "GroupName": "GeneratedFindingSecurityGroupName"
+                }
+              ],
+              "SubnetId": "GeneratedFindingSubnetId",
+              "VpcId": "GeneratedFindingVPCId"
+            }
+          ],
+          "Platform": null,
+          "ProductCodes": [
+            {
+              "Code": "GeneratedFindingProductCodeId",
+              "ProductType": "GeneratedFindingProductCodeType"
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "GeneratedFindingInstaceTag1",
+              "Value": "GeneratedFindingInstaceValue1"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag2",
+              "Value": "GeneratedFindingInstaceTagValue2"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag3",
+              "Value": "GeneratedFindingInstaceTagValue3"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag4",
+              "Value": "GeneratedFindingInstaceTagValue4"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag5",
+              "Value": "GeneratedFindingInstaceTagValue5"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag6",
+              "Value": "GeneratedFindingInstaceTagValue6"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag7",
+              "Value": "GeneratedFindingInstaceTagValue7"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag8",
+              "Value": "GeneratedFindingInstaceTagValue8"
+            },
+            {
+              "Key": "GeneratedFindingInstaceTag9",
+              "Value": "GeneratedFindingInstaceTagValue9"
+            }
+          ]
+        },
+        "ResourceType": "S3Bucket"
+      },
+      "SchemaVersion": "2.0",
+      "Service": {
+        "Action": {
+          "ActionType": "AWS_API_CALL",
+          "AwsApiCallAction": {
+            "Api": "GeneratedFindingAPIName",
+            "CallerType": "Remote IP",
+            "ErrorCode": "AccessDenied",
+            "RemoteIpDetails": {
+              "City": {
+                "CityName": "GeneratedFindingCityName"
+              },
+              "Country": {
+                "CountryName": "GeneratedFindingCountryName"
+              },
+              "GeoLocation": {
+                "Lat": 0,
+                "Lon": 0
+              },
+              "IpAddressV4": "198.51.100.0",
+              "Organization": {
+                "Asn": "-1",
+                "AsnOrg": "GeneratedFindingASNOrg",
+                "Isp": "GeneratedFindingISP",
+                "Org": "GeneratedFindingORG"
+              }
+            },
+            "ServiceName": "GeneratedFindingAPIServiceName",
+            "AffectedResources": {
+              "AWS::S3::Bucket": "GeneratedFindingS3Bucket"
+            }
+          }
+        },
+        "Archived": false,
+        "Count": 2,
+        "DetectorId": "f6c2881d4202ff653c1f33df4bc1791e",
+        "EventFirstSeen": "2022-12-15T12:09:08.000Z",
+        "EventLastSeen": "2022-12-15T14:14:49.000Z",
+        "ResourceRole": "TARGET",
+        "ServiceName": "guardduty",
+        "AdditionalInfo": {
+          "Value": "{\"unusual\":{\"hoursOfDay\":[1513609200000],\"userNames\":[\"GeneratedFindingUserName\"]},\"sample\":true}",
+          "Type": "default"
+        }
+      },
+      "Severity": 5,
+      "Title": "Resource discovery API GeneratedFindingAPIName was invoked from a Tor exit node.",
+      "Type": "Discovery:S3/TorIPCaller",
+      "UpdatedAt": "2022-12-15T14:14:49.946Z"
+    }
+  ]
+  Download
