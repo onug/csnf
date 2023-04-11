@@ -1,0 +1,16 @@
+<dashboard version="1.1"
+           isDashboard="false"
+           script="javascript/setup_page.js"
+           stylesheet="styles/setup_page.css">
+           
+      <label>CSNF Setup Page</label>
+      <description>Global configuration options for the CSNF Technology Add-on</description>
+        <row>
+            <panel>
+                <html>
+                    <div id="main_container"></div>
+                </html>
+            </panel>
+        </row>
+</dashboard>
+
