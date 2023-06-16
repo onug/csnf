@@ -7,6 +7,6 @@ Feel free to try any of these demos by following the guidelines pertaining to ea
 ## Table of Contents
 | Demo name  |  Event   |  Link  |
 |-------|-------|------|
-| CSNF - concept intro |  ONUG Spring 2021  |  [Link](demos/csnf#cloud-security-notifications-framework)  | 
-| Docker packaged demo - Cupcake edition | ONUG Fall 2021 | [Link](demos/demo-service#readme)  |
-| Integrated CSNF experiences demo - Birthday cake edition  |  ONUG Spring 2022  | [Link](demos/birthday-cake#readme)  | 
+| CSNF - concept intro |  ONUG Spring 2021  |  [Link](./csnf)  | 
+| Docker packaged demo - Cupcake edition | ONUG Fall 2021 | [Link](./demo-service)  |
+| Integrated CSNF experiences demo - Birthday cake edition  |  ONUG Spring 2022  | [Link](./birthday-cake)  | 
