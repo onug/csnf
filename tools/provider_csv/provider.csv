@@ -44,3 +44,8 @@ Amazon Web Services,CSP,4,GuardDuty,__default__,event.startTime,CreatedAt,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,resource.identifier,Resource.AccessKeyDetails.GeneratedFindingPrincipalId,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.shortDescription,Description,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.name,Title,,
+Falco,CSPM,4,Falco,__default__,event.guid,output_fields."evt.time",,string
+Falco,CSPM,4,Falco,__default__,event.startTime,time,,string
+Falco,CSPM,4,Falco,__default__,resource.name,output_fields."k8s.pod.name",,string
+Falco,CSPM,4,Falco,__default__,event.severity,priority,,string
+Falco,CSPM,4,Falco,__default__,event.name,rule,,string
