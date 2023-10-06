@@ -1,0 +1,84 @@
+{
+  "hostname": "falco-hwgrc",
+  "output": "18:52:56.237975447: Error File below a known binary directory opened for writing (user=root user_loginuid=-1 command=touch /bin/test-bin pid=12899 file=/bin/test-bin parent=<NA> pcmdline=<NA> gparent=<NA> container_id=2f83fe854c4f image=falcosecurity/falco-no-driver) k8s.ns=default k8s.pod=falco-hwgrc container=2f83fe854c4f",
+  "priority": "Error",
+  "rule": "Write below binary dir",
+  "source": "syscall",
+  "tags": [
+    "T1543",
+    "container",
+    "filesystem",
+    "host",
+    "mitre_persistence"
+  ],
+  "time": "2023-08-12T18:52:56.237975447Z",
+  "output_fields": {
+    "container.id": "2f83fe854c4f",
+    "container.image.repository": "falcosecurity/falco-no-driver",
+    "evt.time": 1691866376237975600,
+    "fd.name": "/bin/test-bin",
+    "k8s.ns.name": "default",
+    "k8s.pod.name": "falco-hwgrc",
+    "proc.aname[2]": null,
+    "proc.cmdline": "touch /bin/test-bin",
+    "proc.pcmdline": null,
+    "proc.pid": 12899,
+    "proc.pname": null,
+    "user.loginuid": -1,
+    "user.name": "root"
+  }
+}
+{
+  "hostname": "falco-hwgrc",
+  "output": "18:55:15.804675853: Informational Privileged container started (user=65535:65535 user_loginuid=0 command=container:46e7bc35c7dd pid=-1 k8s.ns=default k8s.pod=dvldb-privileged-container-deployment-c878e6e7-5d5c966894-c7q5v container=46e7bc35c7dd image=registry.k8s.io/pause:3.9)",
+  "priority": "Informational",
+  "rule": "Launch Privileged Container",
+  "source": "syscall",
+  "tags": [
+    "T1610",
+    "cis",
+    "container",
+    "mitre_lateral_movement",
+    "mitre_privilege_escalation"
+  ],
+  "time": "2023-08-12T18:55:15.804675853Z",
+  "output_fields": {
+    "container.id": "46e7bc35c7dd",
+    "container.image.repository": "registry.k8s.io/pause",
+    "container.image.tag": "3.9",
+    "evt.time": 1691866515804675800,
+    "k8s.ns.name": "default",
+    "k8s.pod.name": "dvldb-privileged-container-deployment-c878e6e7-5d5c966894-c7q5v",
+    "proc.cmdline": "container:46e7bc35c7dd",
+    "proc.pid": -1,
+    "user.loginuid": 0,
+    "user.name": "65535:65535"
+  }
+}
+{
+  "hostname": "falco-hwgrc",
+  "output": "18:55:15.804675853: Informational Privileged container started (user=65535:65535 user_loginuid=0 command=container:c1a5f2097287 pid=-1 k8s.ns=default k8s.pod=dvldb-privileged-container-deployment-c878e6e7-5d5c966894-sb26b container=c1a5f2097287 image=registry.k8s.io/pause:3.9)",
+  "priority": "Informational",
+  "rule": "Launch Privileged Container",
+  "source": "syscall",
+  "tags": [
+    "T1610",
+    "cis",
+    "container",
+    "mitre_lateral_movement",
+    "mitre_privilege_escalation"
+  ],
+  "time": "2023-08-12T18:55:15.804675853Z",
+  "output_fields": {
+    "container.id": "c1a5f2097287",
+    "container.image.repository": "registry.k8s.io/pause",
+    "container.image.tag": "3.9",
+    "evt.time": 1691866515804675800,
+    "k8s.ns.name": "default",
+    "k8s.pod.name": "dvldb-privileged-container-deployment-c878e6e7-5d5c966894-sb26b",
+    "proc.cmdline": "container:c1a5f2097287",
+    "proc.pid": -1,
+    "user.loginuid": 0,
+    "user.name": "65535:65535"
+  }
+}
