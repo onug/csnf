@@ -1,0 +1,5 @@
+<nav search_view="csnf_home" color="#355e3b">
+  <view name="csnf_home" default="true" />
+  <view name="csnf_events" />
+  <a href="https://csnf.netlify.app" target="_blank">CSNF Developer Portal</a>
+</nav>
