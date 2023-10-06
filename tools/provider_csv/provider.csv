@@ -44,3 +44,9 @@ Amazon Web Services,CSP,4,GuardDuty,__default__,event.startTime,CreatedAt,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,resource.identifier,Resource.AccessKeyDetails.GeneratedFindingPrincipalId,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.shortDescription,Description,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.name,Title,,
+Amazon Web Services,CSP,4,CloudTrail,__default__,provider.accountId,recipientAccountId,,string
+Amazon Web Services,CSP,4,CloudTrail,__default__,event.guid,eventID,,string
+Amazon Web Services,CSP,4,CloudTrail,__default__,event.actor,userIdentity.arn,,string
+Amazon Web Services,CSP,4,CloudTrail,__default__,event.startTime,eventTime,,
+Amazon Web Services,CSP,4,CloudTrail,__default__,event.geolocation.ipv4,sourceIPAddress,,
+Amazon Web Services,CSP,4,CloudTrail,__default__,event.name,eventName,,string
