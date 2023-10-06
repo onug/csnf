@@ -1,0 +1,14 @@
+Provider,Provider Type,Provider ID,Source,alertId,CSNF Dictionary,path,staticValue,entityType
+Amazon Web Services,CSP,4,GuardDuty,__default__,provider.accountId,accountId,26923064426,string
+Amazon Web Services,CSP,4,GuardDuty,__default__,event.guid,Id,77643f787adb40b98bc30b78173466c9,string
+Amazon Web Services,CSP,4,GuardDuty,__default__,event.actor,Resource.AccessKeyDetails.GeneratedFindingUserName,GeneratedFindingUserName,string
+Amazon Web Services,CSP,4,GuardDuty,__default__,event.startTime,CreatedAt,2022-12-15T12:09:08.488Z,
+Amazon Web Services,CSP,4,GuardDuty,__default__,resource.identifier,Resource.AccessKeyDetails.GeneratedFindingPrincipalId,GeneratedFindingPrincipalId,
+Amazon Web Services,CSP,4,GuardDuty,__default__,event.shortDescription,Description,S3 API GeneratedFindingAPIName was invoked from known malicious IP address 198.51.100.0. This can indicate an attempt by an adversary to discover resources in your AWS environment.,
+Amazon Web Services,CSP,4,GuardDuty,__default__,event.name,Title,S3 API GeneratedFindingAPIName was invoked from known malicious IP address 198.51.100.0.,
+Amazon Web Services,CSP,4,GuardDuty,__default__,decorator.behavior,Service.Action.ActionType,AWS_API_CALL,
+Amazon Web Services,CSP,4,GuardDuty,__default__,decorator.references,Service.Action.AWSApiCallAction.ServiceName,GeneratedFindingAPIServiceName,
+Amazon Web Services,CSP,4,GuardDuty,__default__,decorator.risk,Severity,8,
+Amazon Web Services,CSP,4,GuardDuty,__default__,decorator.threat,Type,Discovery:S3/MaliciousIPCaller,
+Amazon Web Services,CSP,4,GuardDuty,__default__,resource.name,Resource.S3BucketDetails.Arn,arn:aws:s3:::bucketName,
+Amazon Web Services,CSP,4,GuardDuty,__default__,resource.group,Resource.S3BucketDetails.Owner.Id,CanonicalId of Owner,

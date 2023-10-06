@@ -1,0 +1,21 @@
+<dashboard version="1.1" theme="light">
+  <label>CSNF Raw Events</label>
+  <description>Expand the search results to view values that are mapped to the CSNF Canonical Data Model</description>
+  <row>
+    <panel>
+      <event>
+        <search>
+          <query>index=main sourcetype=aws:s3 | fields "csnf.decorator.risk", "csnf.decorator.threat", "csnf.event.guid", "csnf.event.name", "csnf.event.shortDescription", "csnf.event.startTime", "csnf.provider", "csnf.provider.accountId", "csnf.resource.accountId", "csnf.resource.name", "csnf.resource.type", "csnf.service.name", "csnf.service.type"</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+        </search>
+        <option name="list.drilldown">inner</option>
+        <option name="maxLines">10</option>
+        <option name="raw.drilldown">inner</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="table.drilldown">none</option>
+        <option name="type">list</option>
+      </event>
+    </panel>
+  </row>
+</dashboard>
