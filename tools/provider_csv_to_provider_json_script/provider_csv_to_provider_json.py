@@ -95,65 +95,6 @@ def write_json_output(all_providers, output_file):
         json.dump(all_providers, outfile)
 
 
-def convert_onug_csv_to_splunk(input_file):
-    all_providers = {}
-    has_header = True
-    with open(input_file) as f:
-        csvreader = csv.reader(f)
-        if has_header:
-            next(csvreader)  # Consume one line if a header exists
-
-        # Iterate over the rows, and unpack each row into the variables
-        for (
-            provider_name,
-            provider_type,
-            provider_id,
-            source_name,
-            alert_id_name,
-            csnf_path,
-            provider_path,
-            static_value,
-            entity_type,
-        ) in csvreader:
-            # If the provider hasn't been processed yet, create a new dict for it
-            if provider_name not in all_providers:
-                all_providers[provider_name] = {
-                    "provider": provider_name,
-                    "providerType": provider_type,
-                    "providerId": provider_id,
-                    "source": {},
-                }
-
-            # Get the dict object that holds this provider's information
-            provider = all_providers[provider_name]
-            # If the tournament hasn't been processed already for this team,
-            # create a new dict for it in the team's dict
-            if source_name not in provider["source"]:
-                provider["source"][source_name] = {
-                    "sourceName": source_name,
-                    "sourceId": "None",
-                    "alerts": {},
-                }
-
-            if alert_id_name not in provider["source"][source_name]["alerts"]:
-                provider["source"][source_name]["alerts"][alert_id_name] = {
-                    "alertMapping": {}
-                }
-
-            alert_mapping = provider["source"][source_name]["alerts"][alert_id_name][
-                "alertMapping"
-            ]
-            alert_mapping[csnf_path] = {
-                "path": provider_path,
-                "entityType": entity_type,
-                "mappedValue": (static_value != ""),
-                "value": static_value,
-            }
-
-    return all_providers
-
-
-
 def dict_to_splunk_conf(all_providers):
     with open("./props.conf", "w") as outfile:
         for provider, provider_values in all_providers.items():
