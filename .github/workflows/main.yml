@@ -1,0 +1,23 @@
+name: Unit Testing
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Lint and format tools
+      run: |
+        cd tools/provider_csv_to_provider_json_script/
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        black
+        pylint
+    - name: Test provider CSV
+      run: |
+        python mappings/test/test_csv_valid.py
