@@ -1,8 +1,9 @@
 """Opens CSV for provider and tests that it's valid. """
 
 import csv
+import os
 
-PROVIDER_CSV = "../provider.csv"
+PROVIDER_CSV = os.path.join(os.path.dirname(__file__), "../provider.csv")
 
 
 def test_csv_opens():
