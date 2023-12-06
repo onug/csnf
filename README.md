@@ -1,5 +1,8 @@
 
 # Cloud Security Notifications Framework 
+
+![Unit Testing](https://github.com/onug/csnf/actions/workflows/main.yml/badge.svg)
+
 ## Table of Contents
 1. [Overview](#overview)
 1. [Canonical Data Model](./Canonical_Data_Model.md)

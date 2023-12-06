@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csnf_provider_csv_to_json"
+version = "0.0.1"
+authors = [
+  { name="Josh Halimer"},
+]
+description = "A script to convert between CSNF mapping csv and a JSON or Splunk output."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/onug/csnf"
+Issues = "https://github.com/onug/csnf/issues"
