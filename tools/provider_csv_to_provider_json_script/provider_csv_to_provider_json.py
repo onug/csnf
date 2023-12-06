@@ -9,7 +9,7 @@ import csv
 import json
 
 
-def validate_csv_data(
+def validate_csv_data(  # pylint: disable=too-many-arguments
     all_providers,
     provider_name,
     provider_type,
@@ -57,7 +57,7 @@ def convert_onug_csv_to_dictionary(input_file):
     """Reads data from CSV and outputs it as a python dictionary"""
     all_providers = {}
     has_header = True
-    with open(input_file) as csv_file:
+    with open(input_file, encoding="utf-8") as csv_file:
         csvreader = csv.reader(csv_file)
         if has_header:
             next(csvreader)
@@ -91,14 +91,15 @@ def convert_onug_csv_to_dictionary(input_file):
 
 def write_json_output(all_providers, output_file):
     """Output file with a json dump"""
-    with open(output_file, "w") as outfile:
+    with open(output_file, "w", encoding="utf-8") as outfile:
         json.dump(all_providers, outfile)
 
 
 def dict_to_splunk_conf(all_providers):
-    with open("./props.conf", "w") as outfile:
+    """Creates splunk configuration file and outputs file contents to screen."""
+    with open("./props.conf", "w", encoding="utf-8") as outfile:
         for provider, provider_values in all_providers.items():
-            for source, source_values in provider_values["source"].items():
+            for _, source_values in provider_values["source"].items():
                 # print(source + " : " + str(source_values))
                 print(f"[{provider}:{source_values['sourceName']}]")
                 outfile.write(f"[{provider}:{source_values['sourceName']}]\n")
@@ -129,57 +130,6 @@ def dict_to_splunk_conf(all_providers):
                         + alert_mapping
                         + '"\n'
                     )
-                    # outfile.write(prefix + " = " + alertMapping_values['path'] + " ASNEW " + '"' + alertMapping + '"\n')
-                    # print(prefix + alertMapping + " : " + str(alertMapping_values['path']))
-
-                # for alertMapping, alertMapping_values in source_values['alertMapping'].items():
-                # 	print(alertMapping_values)
-
-
-# def convert_onug_csv_to_trigger(input_file, output_file):
-# 	all_providers = {}
-# 	has_header = True
-# 	try:
-# 		with open(input_file) as f:
-# 			csvreader = csv.reader(f)
-# 			if has_header: next(csvreader) # Consume one line if a header exists
-
-# 			# Iterate over the rows, and unpack each row into the variables
-# 			for provider_name, provider_type, provider_id, source_name, alert_id_name, csnf_path, provider_path, static_value, entity_type in csvreader:
-# 				# If the provider hasn't been processed yet, create a new dict for it
-# 				if provider_name not in all_providers:
-# 					all_providers[provider_name] = {
-# 						"provider" : provider_name,
-# 						"providerType" : provider_type,
-# 						"providerId" : provider_id,
-# 						"source" : {}}
-
-# 				# Get the dict object that holds this provider's information
-# 				provider = all_providers[provider_name]
-# 				# If the tournament hasn't been processed already for this team, create a new dict for it in the team's dict
-# 				if source_name not in provider["source"]:
-# 					provider["source"][source_name] = { "sourceName" : source_name, "sourceId" : "None", "alerts": {}}
-
-# 				if alert_id_name not in provider["source"][source_name]["alerts"]:
-# 					provider["source"][source_name]["alerts"][alert_id_name] = {"alertMapping" : {}}
-
-# 				alert_mapping = provider["source"][source_name]["alerts"][alert_id_name]["alertMapping"]
-# 				alert_mapping[csnf_path] = {
-# 					"path" : provider_path,
-# 					"entityType" : entity_type,
-# 					"mappedValue" : True if static_value else False,
-# 					"value" : static_value
-# 				}
-# 	except Exception as e:
-# 		raise("Failed to convert ONUG parse CSV file \n " + str(e))
-
-# 	try:
-# 		with open(output_file, "w") as outfile:
-# 			json.dump(all_providers, outfile)
-# 	except Exception as e:
-# 		raise("Failed to write JSON to file \n" + str(e))
-
-# 	return all_providers
 
 
 def execute_conversion():
@@ -195,7 +145,7 @@ def execute_conversion():
 
     if len(sys.argv) != 5:
         parser.print_help()
-    else: 
+    else:
         print(f"Input file is: {result.input_csv.name}")
         print(f"Output file is: {result.output_json.name}")
         all_providers_dict = convert_onug_csv_to_dictionary(result.input_csv.name)
