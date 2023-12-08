@@ -62,3 +62,12 @@ Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.geolocation.ipv4,data.
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.actor,data.identity.principalId,,string
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.accountId,data.compartmentId,,
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.name,data.eventName,,
+Fortinet,FW,6,Fortigate,__default__,event.name,subtype,,string
+Fortinet,FW,6,Fortigate,__default__,event.startTime,eventtime,,
+Fortinet,FW,6,Fortigate,__default__,resource.guid,appid,,
+Fortinet,FW,6,Fortigate,__default__,resource.type,appcat,,string
+Fortinet,FW,6,Fortigate,__default__,resource.name,app,,string
+Fortinet,FW,6,Fortigate,__default__,event.severity,level,,string
+Fortinet,FW,6,Fortigate,__default__,event.geolocation.ipv4,srcip,,
+Fortinet,FW,6,Fortigate,__default__,event.geolocation.country,srccountry,,string
+Fortinet,FW,6,Fortigate,__default__,event.state,action,,string
