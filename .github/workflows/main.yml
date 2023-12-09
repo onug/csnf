@@ -20,4 +20,5 @@ jobs:
         pylint ./
     - name: Test provider CSV
       run: |
+        pip install -r mappings/test/requirements.txt
         python mappings/test/test_csv_valid.py
