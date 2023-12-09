@@ -3,10 +3,10 @@ Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,provider.accountId,dat
 Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.guid,data.resourceId,,string
 Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.name,data.additionalDetails.problemName,,string
 Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.shortDescription,data.additionalDetails.problemDescription,,string
-Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.startTime,data.additionalDetails.firstDetected,,datetime
+Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.timeStart,data.additionalDetails.firstDetected,,datetime
 Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.severity,data.additionalDetails.riskLevel,,string
-Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.status,data.additionalDetails.status,,string
-Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,resource.identifier,data.additionalDetails.resourceId,,orclResourceId
+Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,event.state,data.additionalDetails.status,,string
+Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,resource.guid,data.additionalDetails.resourceId,,orclResourceId
 Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,resource.type,data.additionalDetails.resourceType,,string
 Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,resource.name,data.additionalDetails.resourceName,,string
 Oracle Cloud Infrastructure,CSP,1,Cloud Guard,__default__,resource.region,data.additionalDetails.region,,string
@@ -20,9 +20,9 @@ Azure,CSP,2,Defender,__default__,event.guid,id,,string
 Azure,CSP,2,Defender,__default__,event.name,properties.alertName,,string
 Azure,CSP,2,Defender,__default__,event.shortDescription,properties.alertDisplayName,,string
 Azure,CSP,2,Defender,__default__,event.longDescription,properties.description,,string
-Azure,CSP,2,Defender,__default__,event.startTime,properties.detectedTimeUtc,,string
-Azure,CSP,2,Defender,__default__,event.status,properties.state,,string
-Azure,CSP,2,Defender,__default__,resource.identifier,properties.associatedResource,,string
+Azure,CSP,2,Defender,__default__,event.timeStart,properties.detectedTimeUtc,,string
+Azure,CSP,2,Defender,__default__,event.state,properties.state,,string
+Azure,CSP,2,Defender,__default__,resource.guid,properties.associatedResource,,string
 Azure,CSP,2,Defender,__default__,resource.type,properties.extendedProperties.resourceType,,string
 Azure,CSP,2,Defender,__default__,event.geolocation.ipv4,properties.extendedProperties.client IP address,,
 Azure,CSP,2,Defender,__default__,event.actor,properties.extendedProperties.client principal name,,
@@ -30,9 +30,9 @@ Azure,CSP,2,Defender,__default__,event.severity,properties.reportedSeverity,,
 Aquasec,CSPM,3,Aqua,__default__,event.name,data.control,,string
 Aquasec,CSPM,3,Aqua,__default__,event.guid,id,,string
 Aquasec,CSPM,3,Aqua,__default__,event.shortDescription,data.reason,,string
-Aquasec,CSPM,3,Aqua,__default__,event.startTime,data.time,,string
+Aquasec,CSPM,3,Aqua,__default__,event.timeStart,data.time,,string
 Aquasec,CSPM,3,Aqua,__default__,event.severity,,High,string
-Aquasec,CSPM,3,Aqua,__default__,resource.identifier,containerid,,string
+Aquasec,CSPM,3,Aqua,__default__,resource.guid,containerid,,string
 Aquasec,CSPM,3,Aqua,__default__,resource.type,type,,string
 Aquasec,CSPM,3,Aqua,__default__,resource.name,data.container,,string
 Aquasec,CSPM,3,Aqua,__default__,resource.region,data.vm_location,,string
@@ -40,22 +40,22 @@ Amazon Web Services,CSP,4,GuardDuty,__default__,provider.accountId,accountId,,st
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.guid,Arn,,string
 Amazon Web Services,CSP,4,GuardDuty,__default__,provider.accountId,AccountId,,string
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.actor,Resource.AccessKeyDetails.GeneratedFindingUserName,,string
-Amazon Web Services,CSP,4,GuardDuty,__default__,event.startTime,CreatedAt,,
-Amazon Web Services,CSP,4,GuardDuty,__default__,resource.identifier,Resource.AccessKeyDetails.GeneratedFindingPrincipalId,,
+Amazon Web Services,CSP,4,GuardDuty,__default__,event.timeStart,CreatedAt,,
+Amazon Web Services,CSP,4,GuardDuty,__default__,resource.guid,Resource.AccessKeyDetails.GeneratedFindingPrincipalId,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.shortDescription,Description,,
 Amazon Web Services,CSP,4,GuardDuty,__default__,event.name,Title,,
 Falco,CSPM,4,Falco,__default__,event.guid,"output_fields.""evt.time""",,string
-Falco,CSPM,4,Falco,__default__,event.startTime,time,,string
+Falco,CSPM,4,Falco,__default__,event.timeStart,time,,string
 Falco,CSPM,4,Falco,__default__,resource.name,"output_fields.""k8s.pod.name""",,string
 Falco,CSPM,4,Falco,__default__,event.severity,priority,,string
 Falco,CSPM,4,Falco,__default__,event.name,rule,,string
 Amazon Web Services,CSP,4,CloudTrail,__default__,provider.accountId,recipientAccountId,,string
 Amazon Web Services,CSP,4,CloudTrail,__default__,event.guid,eventID,,string
 Amazon Web Services,CSP,4,CloudTrail,__default__,event.actor,userIdentity.arn,,string
-Amazon Web Services,CSP,4,CloudTrail,__default__,event.startTime,eventTime,,
+Amazon Web Services,CSP,4,CloudTrail,__default__,event.timeStart,eventTime,,
 Amazon Web Services,CSP,4,CloudTrail,__default__,event.geolocation.ipv4,sourceIPAddress,,
 Amazon Web Services,CSP,4,CloudTrail,__default__,event.name,eventName,,string
-Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.startTime,eventTime,,string
+Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.timeStart,eventTime,,string
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.guid,eventID,,string
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,provider.accountId,data.identity.tenantId,,string
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.geolocation.ipv4,data.identity.ipAddress,,string
@@ -63,7 +63,7 @@ Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.actor,data.identity.pr
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.accountId,data.compartmentId,,
 Oracle Cloud Infrastructure,CSP,1,Audit,__default__,event.name,data.eventName,,
 Fortinet,FW,6,Fortigate,__default__,event.name,subtype,,string
-Fortinet,FW,6,Fortigate,__default__,event.startTime,eventtime,,
+Fortinet,FW,6,Fortigate,__default__,event.timeStart,eventtime,,
 Fortinet,FW,6,Fortigate,__default__,resource.guid,appid,,
 Fortinet,FW,6,Fortigate,__default__,resource.type,appcat,,string
 Fortinet,FW,6,Fortigate,__default__,resource.name,app,,string

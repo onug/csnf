@@ -7,6 +7,7 @@ provider:
 
 event:
   accountId: String
+  actor: String
   additionalProperties: String
   geolocation:
     city: String
