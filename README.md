@@ -1,5 +1,5 @@
 
-# Cloud Security Notifications Framework 
+# Cloud Security Notification Framework 
 
 ![Unit Testing](https://github.com/onug/csnf/actions/workflows/main.yml/badge.svg)
 
@@ -16,19 +16,19 @@
 
 ## <a name="overview"></a>Overview
 
-CSNF is an Open Source initiative tackling the difficulty of providing security assurance for Cloud at scale caused by the large volume of events and security state messaging. The problem is compounded when using multiple Cloud Service Providers (CSP’s) due to the the lack of standardized events and alerts amongst CSP’s.
+Tired of the mental gymnastics of understanding bespoke security log message formats? **CSNF** provides a common data model for security notifications from all cloud providers and related vendor tools. 
 
-Cloud Service Providers follow no industry standard in the generation of security event messaging. This gap translates
-into increased toil and decreased efficiency for the enterprise cloud consumer. Cloud Security Notification Framework (
-CSNF), being developed by the ONUG Collaborative’s Automated Cloud Governance (ACG) Working Group, is aimed to create a
-standardization process without sacrificing innovation. Join the ONUG discussion and learn how CSNF will support your
-efforts in delivering more efficient Hybrid Multi-Cloud solutions.
+Ideal for incident response teams, where every second counts in an investigation, but flexible enough to help all security engineering teams working across multiple clouds and platforms to better understand and build automation around observability data. 
+
+Our goal is to produce a standardized mapping of security log fields that simplifies the numerous systems present in a modern organization. 
 
 ## <a name="getting-started"></a>Get Started
-There are three key personas that interact with CSNF.  These are defined as follows and illustrated in the following diagram. Get started information for each of these personas is covered after the diagram.    
-1. **Producers.** Include cloud service providers (CSPs) and cloud and on-prem data providers that generate logs as well as security findings or events or alerts. Some examples include Azure, AWS, Google, Oracle, IBM as CSPs and Palo Alto, Cisco, Qualys, etc. 
-1. **Consumers.** Include consuming products like SIEM and SOAR and enterprises that use these products or directly integrate with the producers using home grown tools or services. Some examples include Splunk, Microsoft Sentinel, Google Chronicle, etc. as consuming products and Cigna, Intuit, FedEx, etc. as enterprise consumers. 
-1. **ONUG Open Community.** Brings together producers, consumers and cybersecurity experts like MITRE, NIST, etc. and establishes governance and standardization principles. ONUG enables productization of standards and enable a connected open community of standards. Key goal is to enable easy way for enterprises to work in the multi-cloud world with standardized and enriched information. This CSNF GitHub enables connecting producers and consumers to connect with CSNF.
+
+### <a name="splunk"></a> Splunk
+If you or your organization uses Splunk, getting started with CSNF should be as easy as [installing the CSNF Splunk TA](https://splunkbase.splunk.com/app/6880).
+
+### <a name="producers"></a> Producers
+If you manage a tool or product expected to output logs ingested by security teams, check out [the Canonical Data Model](https://csnf.netlify.app/docs/tasks/canonical-model/) and leverage our fields for your log outputs.
 
 ![ONUG Vision](/img/CSNFVision.png)
 
@@ -59,7 +59,7 @@ Check out the currently integrated SIEMs, SOARs and products and follow the resp
 
 ##### <a name="consumerscenario2custom"></a> Connect my tools and services with CSNF.
 Follow the guidance below to connect enterprise tools and services with CSNF and customize as needed. 
-1.	Detailed steps and links to tools and validations as needed Coming soon...
+1.	Detailed steps and links to tools and validations as needed Coming soon..
 
 ## <a name="steering-committee"></a>Steering Committee
 
