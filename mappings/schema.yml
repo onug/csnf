@@ -1,0 +1,73 @@
+provider:
+  accountId: String
+  guid: String
+  name: String
+  product: String
+  type: String
+
+event:
+  accountId: String
+  actor: String
+  additionalProperties: String
+  geolocation:
+    city: String
+    country: String
+    ipv4: String
+    ipv6: String
+    latitude: String
+    longitude: String
+    postalcode: String
+    state: String
+  guid: String
+  longDescription: String
+  name: String
+  recommendation: String
+  relatedEvent: String
+  severity: String
+  shortDescription: String
+  state: String
+  time: String
+  timeEnd: String
+  timeStart: String
+  timeUpdated: String
+  timezone: String
+  type: String
+  url: String
+
+resource:
+  accountId: String
+  additionalProperties: String
+  criticality: String
+  group: String
+  guid: String
+  name: String
+  region: String
+  type: String
+  url: String
+  zone: String
+
+service:
+  additionalProperties: String
+  guid: String
+  name: String
+  region: String
+  type: String
+  url: String
+  zone: String
+
+threatactor:
+  additionalProperties: String
+  guid: String
+  name: String
+  type: String
+
+decorator:
+  behavior: String
+  compliance: String
+  custom1: String
+  custom2: String
+  dataClassification: String
+  references: String
+  risk: String
+  threat: String
+  vulnerability: String
