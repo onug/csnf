@@ -77,5 +77,5 @@ Google Cloud Platform,CSP,7,Security Command Center,__default__,event.name,findi
 Google Cloud Platform,CSP,7,Security Command Center,__default__,event.timeStart,finding.eventTime,,string
 Google Cloud Platform,CSP,7,Security Command Center,__default__,event.severity,finding.severity,,string
 Google Cloud Platform,CSP,7,Security Command Center,__default__,event.longDescription,finding.sourceProperties.Explanation,,string
-Google Cloud Platform,CSP,7,Security Command Center,__default__,event.reccomendation,finding.sourceProperties.Reccomendation,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,event.recommendation,finding.sourceProperties.Recommendation,,string
 Google Cloud Platform,CSP,7,Security Command Center,__default__,resource.type,resource.type,,string
