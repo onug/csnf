@@ -24,7 +24,7 @@ event:
     description:
   additionalProperties: 
     format: string
-    description:  	Key-Value pairs or property bag for additional missing but critical event properties. Includes labels.
+    description: Key-Value pairs or property bag for additional missing but critical event properties. Includes labels.
   geolocation:
     city: 
       format: string
