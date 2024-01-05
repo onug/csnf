@@ -71,3 +71,11 @@ Fortinet,FW,6,Fortigate,__default__,event.severity,level,,string
 Fortinet,FW,6,Fortigate,__default__,event.geolocation.ipv4,srcip,,
 Fortinet,FW,6,Fortigate,__default__,event.geolocation.country,srccountry,,string
 Fortinet,FW,6,Fortigate,__default__,event.state,action,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,provider.accountId,finding.resourceName,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,event.state,finding.state,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,event.name,finding.category,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,event.timeStart,finding.eventTime,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,event.severity,finding.severity,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,event.longDescription,finding.sourceProperties.Explanation,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,event.reccomendation,finding.sourceProperties.Reccomendation,,string
+Google Cloud Platform,CSP,7,Security Command Center,__default__,resource.type,resource.type,,string
