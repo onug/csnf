@@ -1,73 +1,195 @@
 provider:
-  accountId: String
-  guid: String
-  name: String
-  product: String
-  type: String
+  accountId: 
+    format: string
+    description: The cloud account or organization id used to identify different entities in a multi-tenant environment. 
+  guid: 
+    format: string
+    description: Identifier for the provider.
+  name: 
+    format: string
+    description: The cloud account name or alias used to identify different entities in a multi-tenant environment.
+  product: 
+    format: string
+    description: Source product service name from the vendor to indicate the origin (e.g. Azure Defender, Oracle Cloud Guard, etc.)
+  type: 
+    format: string
+    description: IaaS, SaaS or PaaS
 
 event:
-  accountId: String
-  actor: String
-  additionalProperties: String
+  accountId: 
+    format: string
+    description: The cloud account or organization id used to identify different entities in a multi-tenant environment.
+  actor: 
+    format: string
+    description:
+  additionalProperties: 
+    format: string
+    description: Key-Value pairs or property bag for additional missing but critical event properties. Includes labels.
   geolocation:
-    city: String
-    country: String
-    ipv4: String
-    ipv6: String
-    latitude: String
-    longitude: String
-    postalcode: String
-    state: String
-  guid: String
-  longDescription: String
-  name: String
-  recommendation: String
-  relatedEvent: String
-  severity: String
-  shortDescription: String
-  state: String
-  time: String
-  timeEnd: String
-  timeStart: String
-  timeUpdated: String
-  timezone: String
-  type: String
-  url: String
+    city: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+    country: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+    ipv4: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+    ipv6: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+    latitude: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+    longitude: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+    postalcode: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+    state: 
+      format: string
+      description: Geolocation includes country, state, city, zip and latitude, longitude information
+  guid: 
+    format: string
+    description: Identifier
+  longDescription: 
+    format: string
+    description: Detailed description of event
+  name: 
+    format: string
+    description: Name of event
+  recommendation: 
+    format: string
+    description:
+  relatedEvent: 
+    format: string
+    description:
+  severity: 
+    format: string
+    description: Event severity set by the provider
+  shortDescription: 
+    format: string
+    description: Brief description of event
+  state: 
+    format: string
+    description: Event state whether active or resolved
+  time: 
+    format: string
+    description: Time - The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+  timeEnd: 
+    format: string
+    description: Time at which the event ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+  timeStart: 
+    format: string
+    description: Time at which the event ocurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+  timeUpdated: 
+    format: string
+    description: Time - The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+  timezone: 
+    format: string
+    description: Timezone.
+  type: 
+    format: string
+    description: Enumeration of Event type - for e.g., Threat, WAF, etc. for security namespace (NEED A STAND LIST)
+  url: 
+    format: string
+    description: Direct URL link to the event for details
 
 resource:
-  accountId: String
-  additionalProperties: String
-  criticality: String
-  group: String
-  guid: String
-  name: String
-  region: String
-  type: String
-  url: String
-  zone: String
+  accountId: 
+    format: string
+    description: The cloud account or organization id used to identify different entities in a multi-tenant environment.
+  additionalProperties: 
+    format: string
+    description:
+  criticality: 
+    format: string
+    description: If the resource is critcial or not
+  group: 
+    format: string
+    description: Group this resource belongs to
+  guid: 
+    format: string
+    description: Resource identifier
+  name: 
+    format: string
+    description: Resource name
+  region: 
+    format: string
+    description: Resource geolocation includes country, state, city, zip and latitude, longitude information –> update this to make this region for the resource only
+  type: 
+    format: string
+    description: Resource type
+  url: 
+    format: string
+    description: Resource URL / URI
+  zone: 
+    format: string
+    description: Resource zone
 
 service:
-  additionalProperties: String
-  guid: String
-  name: String
-  region: String
-  type: String
-  url: String
-  zone: String
+  additionalProperties: 
+    format: string
+    description: Key-Value pairs or property bag for additional missing but critical event properties
+  guid: 
+    format: string
+    description: Service being monitored - identifier
+  name: 
+    format: string
+    description: Service name
+  region: 
+    format: string
+    description: Service geolocation includes country, state, city, zip and latitude, longitude information
+  type: 
+    format: string
+    description: Service type
+  url: 
+    format: string
+    description:
+  zone: 
+    format: string
+    description: Service zone
 
 threatactor:
-  additionalProperties: String
-  guid: String
-  name: String
-  type: String
+  additionalProperties: 
+    format: string
+    description: Key-Value pairs or property bag for additional missing but critical event properties
+  guid: 
+    format: string
+    description: Threat actor identifier
+  name: 
+    format: string
+    description: Threat actor name
+  type: 
+    format: string
+    description: Threat actor type
 
 decorator:
-  behavior: String
-  compliance: String
-  custom1: String
-  custom2: String
-  dataClassification: String
-  references: String
-  risk: String
-  threat: String
-  vulnerability: String
+  behavior: 
+    format: string
+    description: Behavior of entity associated with the event
+  compliance: 
+    format: string
+    description: Compliance status of enrichment source
+  custom1: 
+    format: string
+    description: Additional custom information pertaining to the event
+  custom2: 
+    format: string
+    description: Additional custom information pertaining to the event
+  dataClassification: 
+    format: string
+    description: Event classification
+  references: 
+    format: string
+    description: The source of enrichment information
+  risk: 
+    format: string
+    description: Risk of the event
+  threat: 
+    format: string
+    description: Threat information pertaining to the event
+  vulnerability: 
+    format: string
+    description: Vulnerability information pertaining to the event
