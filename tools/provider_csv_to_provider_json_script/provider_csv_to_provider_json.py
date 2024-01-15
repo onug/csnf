@@ -55,25 +55,12 @@ def validate_csv_data(  # pylint: disable=too-many-arguments
 def convert_onug_csv_to_dictionary(input_file):
     """Reads data from CSV and outputs it as a python dictionary"""
     all_providers = {}
-    has_header = True
     with open(input_file, encoding="utf-8") as csv_file:
         csvreader = csv.reader(csv_file)
-        if has_header:
-            next(csvreader)
+        next(csvreader)
 
-        for (
-            provider_name,
-            provider_type,
-            provider_id,
-            source_name,
-            alert_id_name,
-            csnf_path,
-            provider_path,
-            static_value,
-            entity_type,
-        ) in csvreader:
-            all_providers = validate_csv_data(
-                all_providers,
+        try:
+            for (
                 provider_name,
                 provider_type,
                 provider_id,
@@ -83,7 +70,23 @@ def convert_onug_csv_to_dictionary(input_file):
                 provider_path,
                 static_value,
                 entity_type,
-            )
+            ) in csvreader:
+                all_providers = validate_csv_data(
+                    all_providers,
+                    provider_name,
+                    provider_type,
+                    provider_id,
+                    source_name,
+                    alert_id_name,
+                    csnf_path,
+                    provider_path,
+                    static_value,
+                    entity_type,
+                )
+        except ValueError as val_error:
+            print("\n\nProper headers were not found in CSV.")
+            print("Ensure CSV has proper CSNF headings.")
+            raise SystemExit(val_error) from val_error
 
     return all_providers
 
@@ -139,17 +142,17 @@ def execute_conversion():
 
     result = parser.parse_args()
 
-    if result.output.endswith(".json") or result.outputendswith(".conf"):
+    if result.output.endswith(".json") or result.output.endswith(".conf"):
         print(f"Stripping .json or .conf from output prefix: {result.output}\n")
         result.output = result.output[:-5]
 
     print(f"Input file is: {result.input_csv.name}")
 
-    print(f"JSON output file is: {result.output}.json")
-    print(f"Splunk output file is: {result.output}.conf")
     all_providers_dict = convert_onug_csv_to_dictionary(result.input_csv.name)
     write_json_output(all_providers_dict, result.output)
+    print(f"JSON output file is: {result.output}.json")
     dict_to_splunk_conf(all_providers_dict, result.output)
+    print(f"Splunk output file is: {result.output}.conf")
 
 
 execute_conversion()
