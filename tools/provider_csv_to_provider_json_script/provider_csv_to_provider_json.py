@@ -83,6 +83,7 @@ def convert_onug_csv_to_dictionary(input_file):
                     static_value,
                     entity_type,
                 )
+
         except ValueError as val_error:
             print("\n\nProper headers were not found in CSV.")
             print("Ensure CSV has proper CSNF headings.")
@@ -121,8 +122,7 @@ def dict_to_splunk_conf(all_providers, output_prefix):
                     )
 
 
-def execute_conversion():
-    """Orchestrates conversion logic"""
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-i",
@@ -153,6 +153,3 @@ def execute_conversion():
     print(f"JSON output file is: {result.output}.json")
     dict_to_splunk_conf(all_providers_dict, result.output)
     print(f"Splunk output file is: {result.output}.conf")
-
-
-execute_conversion()
