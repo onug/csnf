@@ -1,5 +1,5 @@
 
-# Cloud Security Notifications Framework 
+# <img src="./img/CSNFpix.png" alt="CSNF" width="32"/> Cloud Security Notifications Framework 
 
 ![Unit Testing](https://github.com/onug/csnf/actions/workflows/main.yml/badge.svg)
 
