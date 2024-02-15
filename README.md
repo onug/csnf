@@ -39,7 +39,8 @@ Run the [provider_csv_to_provider_json_script](./tools/provider_csv_to_provider_
 ## <a name="contributing"></a>Contributing
 
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) page to learn more about how you can contribute to the CSNF `demo-service`.
-PLEASE ALSO READ THE CSNF "CONTRIBUTOR CODE OF CONDUCT" (./Covenant_Code_of_Conduct.md)
+
+**Please also read the CSNF [Contributor Code Of Conduct](./Covenant_Code_of_Conduct.md)**.
 
 ## <a name="license"></a>License
 
