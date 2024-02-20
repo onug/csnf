@@ -1,0 +1,21 @@
+name: Splunk TA Builder
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v5.0.0
+    - name: Install slim
+      run: |
+        wget https://download.splunk.com/misc/packaging-toolkit/splunk-packaging-toolkit-1.0.1.tar.gz
+        pip install splunk-packaging-toolkit-1.0.1.tar.gz
+    - name: slim packaging 
+      run: |
+        cd ta-csnf/
+        slim generate-manifest
+        slim validate
+        slim package
