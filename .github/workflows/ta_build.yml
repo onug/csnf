@@ -18,6 +18,6 @@ jobs:
     - name: slim packaging 
       run: |
         cd ta-csnf/
-        slim generate-manifest
-        slim validate
-        slim package
+        slim generate-manifest .
+        slim validate .
+        slim package .
