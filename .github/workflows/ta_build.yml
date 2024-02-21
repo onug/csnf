@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: tar package files
       run: |
         COPYFILE_DISABLE=1 tar --format ustar -cvzf ta-csnf.tar.gz ta-csnf/
