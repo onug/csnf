@@ -6,18 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup Python
-      uses: actions/setup-python@v5.0.0
-      with:
-        python-version: "3.9"
-    - name: Install slim
+    - name: tar package files
       run: |
-        wget https://download.splunk.com/misc/packaging-toolkit/splunk-packaging-toolkit-1.0.1.tar.gz
-        pip install splunk-packaging-toolkit-1.0.1.tar.gz
-    - name: slim packaging 
-      run: |
-        cd ta-csnf/
-        slim generate-manifest .
-        slim validate .
-        slim package .
+        COPYFILE_DISABLE=1 tar --format ustar -cvzf ta-csnf.tar.gz ./ta-csnf/
+        tar -tvf ./ta-csnf.tar.gz
