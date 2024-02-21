@@ -1,6 +1,9 @@
 name: Splunk TA Builder
 
-on: [push]
+on: 
+  push:
+    paths:
+      - 'ta-csnf/**'
 
 jobs:
   build:
