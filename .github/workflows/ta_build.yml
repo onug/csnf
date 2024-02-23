@@ -1,0 +1,22 @@
+name: Splunk TA Builder
+
+on: 
+  push:
+    paths:
+      - 'ta-csnf/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: tar package files
+      run: |
+        COPYFILE_DISABLE=1 tar --format ustar -cvzf ta-csnf.tar.gz ta-csnf/
+        tar -tvf ./ta-csnf.tar.gz
+# curl -X POST \
+#    -H "Authorization: bearer <TOKEN>" \
+#    -H "Cache-Control: no-cache" \
+#    -F "app_package=@\"/<./ta-csnf.tar.gz>\"" \
+#    -F "included_tags=cloud" \
+#    --url "https://appinspect.splunk.com/v1/app/validate"
