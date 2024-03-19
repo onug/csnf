@@ -11,9 +11,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: tar package files
+      env: # Or as an environment variable
+        splunk_secret: ${{ secrets.SPLUNK_BASIC_AUTH }}
       run: |
         COPYFILE_DISABLE=1 tar --format ustar -cvzf ta-csnf.tar.gz ta-csnf/
         tar -tvf ./ta-csnf.tar.gz
+        curl --location 'https://api.splunk.com/2.0/rest/login/splunk' \
+            --header 'Authorization: Basic $env:SUPER_SECRET'
 # curl -X POST \
 #    -H "Authorization: bearer <TOKEN>" \
 #    -H "Cache-Control: no-cache" \
