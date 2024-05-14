@@ -26,6 +26,18 @@ asking, `format:verify` won't.
 
 Running `yarn run setup` once is required to enable all other tasks. The command might take a few minutes to finish.
 
+4. cd packages/ta-csnf
+5. Run `yarn run link:app` to add the ta to $SPLUNK_HOME/etc/apps
+
+When making changes: 
+1. `cd ta-csnf-build` 
+2. Run `yarn run build`.
+3. `cd ta-csnf-build/packages`
+6. `yarn run start` 
+7. Navigate to `https://splunk-ip:8000/en-US/_bump` and press bump 
+8. Hard refresh on Splunk UI 
+
+* Repeat steps 7-8 whenever making changes 
 
 ## Developer Scripts
 
