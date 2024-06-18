@@ -2,8 +2,8 @@ name: Splunk TA Builder
 
 on: 
   push:
-    paths:
-      - 'ta-csnf/**'
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -12,8 +12,13 @@ jobs:
     - uses: actions/checkout@v4
     - name: tar package files
       run: |
-        COPYFILE_DISABLE=1 tar --format ustar -cvzf ta-csnf.tar.gz ta-csnf/
-        tar -tvf ./ta-csnf.tar.gz
+        COPYFILE_DISABLE=1 tar --format ustar -cvzf ./ta-${{ github.ref_name }}-csnf.tar.gz ta-csnf/
+        tar -tvf ./ta-${{ github.ref_name }}-csnf.tar.gz
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: ta-${{ github.ref_name }}-csnf.tar.gz
 # curl -X POST \
 #    -H "Authorization: bearer <TOKEN>" \
 #    -H "Cache-Control: no-cache" \
